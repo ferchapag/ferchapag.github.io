@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+  <head>
+  <meta charset="utf-8">
+  <title>Ejercicio 1</title>
+  </head>
+  <body>
+    <h1>Ejercicio</h1>
+    <canvas id="miCanvas1" width="100" height="100">
+    &iexcl;No funciona!
+    </canvas>
+    <canvas id="miCanvas2" width="100" height="100">
+    &iexcl;No funciona!
+    </canvas>
+    <canvas id="miCanvas3" width="100" height="100">
+    &iexcl;No funciona!
+    </canvas>
+    <script>
+      var miCanvas1 = document.getElementById("miCanvas1");
+      var contexto = miCanvas.getContext("2d");
+      contexto.fillStyle ="red";
+      contexto.fillRect(30, 30, 50, 50);
+      
+      var miCanvas2= document.getElementById("miCanvas2");
+      var contexto= miCanvas.getContext("2d");
+      contexto.fillStyle="green";
+      contexto.fillRect(130,130,150,150);
+      
+      var miCanvas3= document.getElementById("miCanvas3");
+      var contexto = miCanvas.getContext("2d");
+      contexto.fillStyle="blue";
+      contexto.fillRect(230,230,250,250);
+      
+      </script>
+    </body>
+  </html>
