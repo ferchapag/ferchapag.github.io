@@ -5,20 +5,33 @@
   <title>Ejercicio 1</title>
   </head>
   <body>
-    <h1>Ejercicio</h1>
-    <canvas id="miCanvas1" width="150" height="150">
+    <h1>Ejercicio 1</h1>
+    <canvas id="miCanvas1" width="100" height="100">
+    &iexcl;No funciona!
+    </canvas>
+    
+    <canvas id="miCanvas2" width="150" height="150">
     &iexcl;No funciona!
     </canvas>
 
+    <canvas id="miCanvas3" width="150" height="150">
+    &iexcl;No funciona!
+    </canvas>
+    
+    
     <script>
       var miCanvas1 = document.getElementById("miCanvas1");
       var contexto = miCanvas.getContext("2d");
       contexto.fillStyle ="red";
       contexto.fillRect(30, 30, 50, 50);
 
+      var miCanvas2 = document.getElementById("miCanvas2");
+      var contexto = miCanvas2.getContext("2d");
       contexto.fillStyle="green";
       contexto.fillRect(80,80,10,10);
-
+      
+      var miCanvas3=document.getElementById("miCanvas3");
+      var contexto= miCanvas3.getContext("2d");
       contexto.fillStyle="blue";
       contexto.fillRect(90,90,10,10);
       
