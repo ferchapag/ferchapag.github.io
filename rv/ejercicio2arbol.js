@@ -6,26 +6,19 @@ var renderizador= new THREE.WebGLRenderer();
 renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);
 
 document.body.appendChild(renderizador.domElement);
-var forma=new THREE.BoxGeometry(1,1,1);
+var forma=new THREE.CyliderGeometry(5,5,50,80);
 var material =new THREE.MeshNormalMaterial();
-var cubo=new THREE.Mesh(forma, material);
+var tronco=new THREE.Mesh(forma, material);
 
-cubo.rotateX(-Math.PI/4);
-cubo.rotateY(-Math.PI/4);
+var forma2=new THREE.SphereGeometry(20,60,60);
+var hojas=new THREE.Mesh(forma2,material);
 
-escena.add(cubo);
+hojas.position.y=50;
 
-var renderizador1=new THREE.WebGLRenderer();
-renderizador1.setSize(window.innerHeight*1,window.innerGeight*1);
 
-document.body.appendChild(renderizador1.domElement);
-var forma1=new THREE.SphereGeometry(1,1,1);
-var material1=new THREE.MeshNormalMaterial();
-var esfera=new THREE.Mesh(forma1, material1);
-
-esfera.rotateX(-Math.PI/4);
-esfera.rotateY(-Math.PI/4);
-escena.add(esfera);
+escena.add(tronco);
+escena.add(hojas);
 
 renderizador.render(escena,camara);
+
 
