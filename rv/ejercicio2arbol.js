@@ -10,8 +10,10 @@ var forma=new THREE.CyliderGeometry(5,5,50,80);
 var material =new THREE.MeshNormalMaterial();
 var tronco=new THREE.Mesh(forma, material);
 
+
 var forma2=new THREE.SphereGeometry(20,60,60);
 var hojas=new THREE.Mesh(forma2,material);
+hojas.fillStyle="green";
 
 hojas.position.y=50;
 
