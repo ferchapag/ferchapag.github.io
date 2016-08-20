@@ -7,7 +7,7 @@ var renderizador= new THREE.WebGLRenderer();
 renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);
 
 document.body.appendChild(renderizador.domElement);
-var forma=new THREE.CylinderGeometry(5,5,30,60);
+var forma=new THREE.CylinderGeometry(7,11,30,60);
 var material =new THREE.MeshNormalMaterial();
 var tronco=new THREE.Mesh(forma, material);
 
