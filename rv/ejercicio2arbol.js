@@ -14,10 +14,7 @@ var tronco=new THREE.Mesh(forma, material);
 
 var forma2=new THREE.SphereGeometry(20,60,60);
 var hojas=new THREE.Mesh(forma2,material);
-hojas.fillStyle="green";
-
 hojas.position.y=50;
-
 
 escena.add(tronco);
 escena.add(hojas);
