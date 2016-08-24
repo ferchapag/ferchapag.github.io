@@ -8,8 +8,8 @@ renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);
 
 document.body.appendChild(renderizador.domElement);
 var forma=new THREE.CylinderGeometry(7,11,30,60);
-var material =new THREE.BasicMaterial({color:433B0F});
-var material1 =new THREE.BasicMaterial({color:0DDA09});
+var material =new THREE.BasicMaterial({color:433});
+var material1 =new THREE.BasicMaterial({color:091});
 var tronco=new THREE.Mesh(forma, material);
 
 
