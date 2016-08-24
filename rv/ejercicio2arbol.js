@@ -8,13 +8,12 @@ renderizador.setSize(window.innerHeight*.95,window.innerHeight*.95);
 
 document.body.appendChild(renderizador.domElement);
 var forma=new THREE.CylinderGeometry(7,11,30,60);
-var material =new THREE.NormalMaterial();
-var material1 =new THREE.NormalMaterial();
+var material =new THREE.MeshNormalMaterial();
 var tronco=new THREE.Mesh(forma, material);
 
 
 var forma2=new THREE.SphereGeometry(20,60,60);
-var hojas=new THREE.Mesh(forma2,material1);
+var hojas=new THREE.Mesh(forma2,material);
 hojas.position.y=30;
 
 escena.add(tronco);
