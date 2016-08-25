@@ -1,4 +1,4 @@
-var figura=new THREE.Shape();
+var figura= new THREE.Shape();
 
 figura.moveTo(10,10);
 figura.lineTo(40,10);
