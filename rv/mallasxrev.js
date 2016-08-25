@@ -9,7 +9,7 @@ var forma= new THREE.LatheGeometry(puntos);
 var material=new THREE.MeshNormalMaterial();
 
 var malla= new THREE.Mesh(forma, material);
-malla.rotateX(MATH.PI/6);
+malla.rotateX(Math.PI/6);
 
 var escena= new THREE.Schene();
 escena.add(malla);
