@@ -1,19 +1,19 @@
 var figura= new THREE.Shape();
 
-figura.moveTo(10,35);
-figura.lineTo(10,35);
-figura.lineTo(0,20);
-figura.lineTo(20,20);
-figura.lineTo(30,0);
-figura.lineTo(40,20);
-figura.lineTo(60,20);
-figura.lineTo(50,35);
-figura.lineTo(60,50);
-figura.lineTo(40,50);
-figura.lineTo(30,70);
-figura.lineTo(20,50);
-figura.lineTo(0,50);
-figura.lineTo(10,35);
+figura.moveTo(2,7);
+figura.lineTo(2,7);
+figura.lineTo(0,4);
+figura.lineTo(4,4);
+figura.lineTo(6,0);
+figura.lineTo(8,4);
+figura.lineTo(12,4);
+figura.lineTo(10,7);
+figura.lineTo(12,10);
+figura.lineTo(8,10);
+figura.lineTo(6,14);
+figura.lineTo(4,10);
+figura.lineTo(0,10);
+figura.lineTo(2,7);
 
 
 var forma=new THREE.ShapeGeometry(figura);
