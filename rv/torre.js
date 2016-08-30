@@ -1,5 +1,5 @@
-var baseForma= new THREE.CylinderGeometry(.5,.5,1);
-var pilarForma= new THREE.SphereGeometry(.65);
+var baseForma= new THREE.CylinderGeometry(1,1,1);
+var pilarForma= new THREE.CylinderGeometry(.7,.7,2);
 esferaForma.translate(0,1,0);
 
 var baseMalla=new THREE.Mesh(baseForma);
