@@ -8,7 +8,6 @@ var pilarMalla=new THREE.Mesh(pilarForma);
 var torreForma= new THREE.Geometry();
 torreForma.merge(baseMalla.geometry, baseMalla.matrix);
 torreForma.merge(pilarMalla.geometry, pilarMalla.matrix);
-torreForma.merge(pilar2Malla.geometry, pilar2Malla.matrix);
 var pilar2Forma= new Three.CylinderGeometry(1,1,1);
 pilar2Forma.translate(0,3,0);
 
