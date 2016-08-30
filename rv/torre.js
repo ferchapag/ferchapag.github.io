@@ -11,7 +11,7 @@ var pilar2Malla=new THREE.Mesh(pilar2Forma);
 var torreForma= new THREE.Geometry();
 torreForma.merge(baseMalla.geometry, baseMalla.matrix);
 torreForma.merge(pilarMalla.geometry, pilarMalla.matrix);
-torre.Forma.merge(pilar2Malla.geometry, pilar2Malla.matrix);
+torreForma.merge(pilar2Malla.geometry, pilar2Malla.matrix);
 
 var material=new THREE.MeshNormalMaterial();
 var torreMalla=new THREE.Mesh(torreForma,material);
