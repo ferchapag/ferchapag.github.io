@@ -1,9 +1,12 @@
 var baseForma= new THREE.CylinderGeometry(1,1,1);
 var pilarForma= new THREE.CylinderGeometry(.5,.5,2);
 pilarForma.translate(0,1,0);
+var base2Forma=new THREE.CylinderGeometry(1,1,1);
+base2Forma.translate(0,3,0);
 
 var baseMalla=new THREE.Mesh(baseForma);
 var pilarMalla=new THREE.Mesh(pilarForma);
+var base2Malla=new THREE.Mesh(base2Forma);
 
 var material=new THREE.MeshNormalMaterial();
 
@@ -12,12 +15,12 @@ torreForma.merge(baseMalla.geometry, baseMalla.matrix);
 torreForma.merge(pilarMalla.geometry, pilarMalla.matrix);
 
 var torreMalla=new THREE.Mesh(torreForma,material);
-
-
+var base2Malla=new THREE.Mesh(base2Forma,material);
 
 
 var escena=new THREE.Scene();
 escena.add(torreMalla);
+escena.add(base2Malla);
 
 var camara=new THREE.PerspectiveCamera();
 camara.position.z=5;
