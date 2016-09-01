@@ -31,7 +31,7 @@ var escena=new THREE.Scene();
 escena.add(torreMalla);
 
 var escena1=new THREE.Scene();
-escena.add(malla);
+escena1.add(malla);
 
 var camara=new THREE.PerspectiveCamera();
 camara.position.z=5;
