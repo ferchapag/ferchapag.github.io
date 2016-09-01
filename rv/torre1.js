@@ -29,7 +29,6 @@ var forma= new THREE.LatheGeometry(puntos);
 
 var malla= new THREE.Mesh(forma, material);
 malla.rotateX(Math.PI/6);
-malla.position.x=2;
 
 
 var escena=new THREE.Scene();
