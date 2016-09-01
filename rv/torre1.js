@@ -18,10 +18,25 @@ torreMalla.position.y=1;
 var base2Malla=new THREE.Mesh(base2Forma,material);
 base2Malla.position.y=3;
 
+var puntos = [];
+for(var i = 0; i<50; i++){
+  puntos.push(new THREE.Vector2(
+                  Math.sin(i*0.2)*15+50,
+                  (i-5)*2));
+}
+
+var forma= new THREE.LatheGeometry(puntos);
+var material=new THREE.MeshNormalMaterial();
+
+var malla= new THREE.Mesh(forma, material);
+malla.rotateX(Math.PI/6);
+malla.position.y=-2;
+
 
 var escena=new THREE.Scene();
 escena.add(torreMalla);
 escena.add(base2Malla);
+escena.add(malla);
 
 var camara=new THREE.PerspectiveCamera();
 camara.position.z=10;
