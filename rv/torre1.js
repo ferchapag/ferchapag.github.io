@@ -18,11 +18,11 @@ var revMalla=new THREE.Mesh(forma);
 
 var material=new THREE.MeshNormalMaterial();
 
-//var malla= new THREE.Mesh(forma, material);
-//malla.rotateX(Math.PI/6);
+var malla= new THREE.Mesh(forma, material);
+malla.rotateX(Math.PI/6);
 
 var torreForma= new THREE.Geometry();
-torreForma.merge(revMalla.geometry, baseMalla.matrix);
+torreForma.merge(baseMalla.geometry, baseMalla.matrix);
 torreForma.merge(pilarMalla.geometry, pilarMalla.matrix);
 
 var torreMalla=new THREE.Mesh(torreForma,material);
@@ -32,6 +32,7 @@ var torreMalla=new THREE.Mesh(torreForma,material);
 
 var escena=new THREE.Scene();
 escena.add(torreMalla);
+escena.add(malla);
 
 
 
