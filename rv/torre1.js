@@ -22,6 +22,9 @@ var base2Forma=new THREE.CylinderGeometry(4,4,5);
 base2Forma.translate(0,23,0);
 var pilarMalla=new THREE.Mesh(pilarForma,material);
 var base2Malla=new THREE.Mesh(base2Forma,material);
+var base3Forma=new THREE.CylinderGeometry(10,10,5);
+base3Forma.translate(0,28,0);
+var base3Malla=new THREE.Mesh(base3Forma,material);
 
 var torreForma= new THREE.Geometry();
 torreForma.merge(revMalla.geometry, revMalla.matrix);
@@ -38,9 +41,14 @@ torreForma2.merge(torre1Malla.geometry, torre1Malla.matrix);
 torreForma2.merge(base2Malla.geometry, base2Malla.matrix);
 var torre2Malla=new THREE.Mesh(torreForma2,material);
 
+var torreForma3= new THREE.Geometry();
+torreForma3.merge(torre2Malla.geometry, torre1Malla.matrix);
+torreForma3.merge(base3Malla.geometry, base2Malla.matrix);
+var torre3Malla=new THREE.Mesh(torreForma2,material);
+
 
 var escena=new THREE.Scene();
-escena.add(torre2Malla);
+escena.add(torre3Malla);
 
 var camara=new THREE.PerspectiveCamera();
 camara.position.z=100;
