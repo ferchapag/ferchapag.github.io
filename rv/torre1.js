@@ -17,7 +17,7 @@ var revMalla= new THREE.Mesh(rev, material);
 var baseMalla=new THREE.Mesh(baseForma,material);
 
 var pilarForma= new THREE.CylinderGeometry(.5,.5,2);
-pilarForma.transalate(0,10,0);
+pilarForma.translate(0,10,0);
 var base2Forma=new THREE.CylinderGeometry(1,1,1);
 base2Forma.translate(0,-1,0);
 var pilarMalla=new THREE.Mesh(pilarForma,material);
