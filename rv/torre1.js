@@ -1,43 +1,47 @@
-var baseForma= new THREE.CylinderGeometry(1,1,1);
-var pilarForma= new THREE.CylinderGeometry(.5,.5,2);
-pilarForma.translate(0,1,0);
-var base2Forma=new THREE.CylinderGeometry(1,1,1);
-
-
-var baseMalla=new THREE.Mesh(baseForma);
-var pilarMalla=new THREE.Mesh(pilarForma);
-
-var material=new THREE.MeshNormalMaterial();
-
-var torreForma= new THREE.Geometry();
-torreForma.merge(baseMalla.geometry, baseMalla.matrix);
-torreForma.merge(pilarMalla.geometry, pilarMalla.matrix);
-
-var torreMalla=new THREE.Mesh(torreForma,material);
-torreMalla.position.y=1;
-var base2Malla=new THREE.Mesh(base2Forma,material);
-base2Malla.position.y=3;
-
+var base= new THREE.Shape();
+base.moveTo(10,10);
+base.lineTo(20,10);
+base.lineTo(20,20);
+base.lineTo(10,20);
+base.lineTo(10,10);
+var baseForma=new THREE.ExtrudeGeometry(base,{amount:10});
 var puntos = [];
 for(var i = 0; i<50; i++){
-  puntos.push(new THREE.Vector2(
-                  Math.sin(i*0.2)*15+50,
-                  (i-5)*2));
+  puntos.push(new THREE.Vector2(Math.sin(i*0.2)*1+50,(i)*2));
 }
+var material=new THREE.MeshNormalMaterial();
 
-var forma= new THREE.LatheGeometry(puntos);
+var rev=new THREE.LatheGeometry(puntos);
 
-var malla= new THREE.Mesh(forma, material);
-malla.rotateX(Math.PI/6);
+var revMalla= new THREE.Mesh(rev, material);
+var baseMalla=new THREE.Mesh(baseForma,material);
+
+var pilarForma= new THREE.CylinderGeometry(.5,.5,2);
+var base2Forma=new THREE.CylinderGeometry(1,1,1);
+var pilarMalla=new THREE.Mesh(pilarForma,material);
+var base2Malla=new THREE.Mesh(base2,material);
+
+var torreForma= new THREE.Geometry();
+torreForma.merge(revMalla.geometry, revMalla.matrix);
+torreForma.merge(baseMalla.geometry, baseMalla.matrix);
+var torreMalla=new THREE.Mesh(torreForma,material);
+
+var torreForma1= new THREE.Geometry();
+torreForma1.merge(pilarMalla.geometry, pilarMalla.matrix);
+torreForma1.merge(torreMalla.geometry, torreMalla.matrix);
+var torre1Malla=new THREE.Mesh(torreForma1,material);
+
+var torreForma2= new THREE.Geometry();
+torreForma2.merge(torre1Malla.geometry, torre1Malla.matrix);
+torreForma2.merge(base2Malla.geometry, base2Malla.matrix);
+var torre2Malla=new THREE.Mesh(torreForma2,material);
 
 
 var escena=new THREE.Scene();
-escena.add(torreMalla);
-escena.add(base2Malla);
-escena.add(malla);
+escena.add(torre2Malla);
 
 var camara=new THREE.PerspectiveCamera();
-camara.position.z=10;
+camara.position.z=60;
 
 
 renderizador= new THREE.WebGLRenderer();
