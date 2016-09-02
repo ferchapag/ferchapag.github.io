@@ -19,7 +19,7 @@ var baseMalla=new THREE.Mesh(baseForma,material);
 var pilarForma= new THREE.CylinderGeometry(.5,.5,2);
 var base2Forma=new THREE.CylinderGeometry(1,1,1);
 var pilarMalla=new THREE.Mesh(pilarForma,material);
-var base2Malla=new THREE.Mesh(base2,material);
+var base2Malla=new THREE.Mesh(base2Forma,material);
 
 var torreForma= new THREE.Geometry();
 torreForma.merge(revMalla.geometry, revMalla.matrix);
