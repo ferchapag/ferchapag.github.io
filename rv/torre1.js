@@ -1,9 +1,9 @@
 var base= new THREE.Shape();
-base.moveTo(0,20);
-base.lineTo(-10,20);
+base.moveTo(-10,-10);
 base.lineTo(-10,0);
-base.lineTo(0,0);
-base.lineTo(0,20);
+base.lineTo(10,0);
+base.lineTo(0,-10);
+base.lineTo(-10,-10);
 var baseForma=new THREE.ExtrudeGeometry(base,{amount:10});
 var puntos = [];
 for(var i = 0; i<10; i++){
