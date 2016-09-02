@@ -7,7 +7,7 @@ base.lineTo(10,10);
 var baseForma=new THREE.ExtrudeGeometry(base,{amount:10});
 var puntos = [];
 for(var i = 0; i<10; i++){
-  puntos.push(new THREE.Vector2(Math.sin(i*0.2)*1+10,(i)*2));
+  puntos.push(new THREE.Vector2(Math.sin(i*0.2)*1+5,(i)));
 }
 var material=new THREE.MeshNormalMaterial();
 
@@ -16,9 +16,9 @@ var rev=new THREE.LatheGeometry(puntos);
 var revMalla= new THREE.Mesh(rev, material);
 var baseMalla=new THREE.Mesh(baseForma,material);
 
-var pilarForma= new THREE.CylinderGeometry(.5,.5,2);
+var pilarForma= new THREE.CylinderGeometry(5,5,2);
 pilarForma.translate(0,10,0);
-var base2Forma=new THREE.CylinderGeometry(1,1,1);
+var base2Forma=new THREE.CylinderGeometry(10,10,1);
 base2Forma.translate(0,-1,0);
 var pilarMalla=new THREE.Mesh(pilarForma,material);
 var base2Malla=new THREE.Mesh(base2Forma,material);
