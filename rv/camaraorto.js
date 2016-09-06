@@ -14,11 +14,11 @@ var cubo=new THREE.Mesh(new THREE.BoxGeometry(30,30,30),new THREE.MeshNormalMate
 cubo.rotateY(Math.PI/4);
 
 var esfera1=new THREE.Mesh(new THREE.SphereGeometry(15), new THREE.MeshNormalMaterial() );
-esfera1.position.x=50;
+esfera1.position.x=100;
 
 var esfera2=new THREE.Mesh(new THREE.SphereGeometry(15),new THREE.MeshNormalMaterial() );
-esfera2.position.x=-50;
-esfera2.position.z=-100;
+esfera2.position.x=-20;
+esfera2.position.z=10;
 
 var escena=new THREE.Scene();
 escena.add(esfera1);
