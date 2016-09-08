@@ -3,7 +3,6 @@ var gris= new THREE.MeshBasicMaterial( {color: 0x6E6E6E} );
 
 var l=10;
 var tablero = [];
-
 for(var i=0;i<8;i++){
   for(var j=0;j<8;j++){
     var mat = gris;
