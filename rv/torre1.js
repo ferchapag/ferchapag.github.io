@@ -9,7 +9,7 @@ var puntos = [];
 for(var i = 0; i<18; i++){
   puntos.push(new THREE.Vector2(Math.sin(i*0.2)*1+7,(i)));
 }
-var material=new THREE.MeshBasicMaterial( {color: 0xFFFFFF});
+var material=new THREE.MeshBasicMaterial( {color: 0x6e6e6e});
 
 var rev=new THREE.LatheGeometry(puntos);
 
