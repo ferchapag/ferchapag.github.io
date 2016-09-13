@@ -1,3 +1,7 @@
+var LuzPuntual=new THREE.PointLight(0xFFFFFF);
+LuzPuntual.position.x=10;
+LuzPuntual.position.y=10;
+LuzPuntual.position.z=10;
 var forma= new THREE.SphereGeometry(1);
 var material= new THREE.MeshLambertMaterial({color: '#00cc00'})
 var malla= new THREE.Mesh(forma, material)
