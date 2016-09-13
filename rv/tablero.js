@@ -16,14 +16,15 @@ for(var i=0;i<8;i++){
     var mat = gris;
      if (par(i)){ 
       if (non(j)){ 
-     mat=blanco;
+        mat=blanco;
       }
-      else{
+      }else{
         if(par(j)){
           mat=blanco;
         }
       }
-    var cubo= new THREE.Mesh(new THREE.BoxGeometry(l,l,l),mat);
+    var cu= new THREE.Mesh(new THREE.BoxGeometry(l,l,l));
+    var cubo=new THREE.Mesh (cu,mat);
     cubo.position.x=j*l;
     cubo.position.y=i*l;
     tablero.push(cubo);
