@@ -1,4 +1,4 @@
-var LuzPuntual=new THREE.PointLight(0xFFFFFF,10,100);
+var LuzPuntual=new THREE.PointLight(0xFFFFFF,0,100);
 LuzPuntual.position.set(10,10,10);
 var forma= new THREE.SphereGeometry(1);
 var material= new THREE.MeshLambertMaterial({color: '#00cc00'})
