@@ -8,6 +8,7 @@ var malla= new THREE.Mesh(forma, material)
 
 var escena=new THREE.Scene();
 escena.add(malla);
+escena.add(LuzPuntual);
 
 var camara = new THREE.PerspectiveCamera();
 camara.position.z=5;
