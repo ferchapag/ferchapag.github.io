@@ -4,7 +4,7 @@ iluminacion.position.set(0,20,0);
 var forma= new THREE.SphereGeometry(1);
 var material= new THREE.MeshLambertMaterial({color: '#00cc00'})
 var malla= new THREE.Mesh(forma, material)
-mala.position.y=2;
+malla.position.y=2;
 
 var base=new THREE.Mesh(new THREE.BoxGeometry(5,.1,5), new THREE.MeshLambertMAterial({color:0xFFFFFF}));
 
