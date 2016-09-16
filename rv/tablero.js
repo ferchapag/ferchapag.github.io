@@ -103,7 +103,7 @@ malla4.position.set(35,-7.5,0);
 var escena = new THREE.Scene();
 for (i = 0; i < 64; i++) {
 escena.add(tablero[i]);
-escena.add(matrix);
+escena.add(torre3Malla);
 escena.add(malla);
 escena.add(malla2);
 escena.add(malla3);
