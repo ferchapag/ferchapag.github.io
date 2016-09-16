@@ -1,5 +1,7 @@
 var Gris = new THREE.MeshBasicMaterial({color: 0xB0A9A7});
 var Blanco = new THREE.MeshBasicMaterial({color: 0xffffff});
+var base=new THREE.Mesh(new THREE.BoxGeometry(5,.1,5), new THREE.MeshLambertMaterial({color:0xFFFFFF}));
+base.position.set(-10,-10,0)
 
 function isEven(n) {
    return n % 2 == 0;
@@ -39,8 +41,7 @@ var camara = new THREE.PerspectiveCamera();
 camara.position.set(40,-100,100);
 camara.lookAt(new THREE.Vector3(40,40,12))
 
-var base=new THREE.Mesh(new THREE.BoxGeometry(5,.1,5), new THREE.MeshLambertMaterial({color:0xFFFFFF}));
-base.position.set(-10,-10,0)
+
 //malla.position.set(-10,-10,0);
 //var malla2=new THREE.Mesh(forma,mate);
 //malla2.position.set(80,-10,0);
