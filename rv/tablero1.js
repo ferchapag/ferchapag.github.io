@@ -101,9 +101,17 @@ torre6Malla.position.set(65,80,12);
 torre6Malla.rotateX(1.57);
 
 //camara
-var camara = new THREE.PerspectiveCamera();
-camara.position.set(40,-130,100);
-camara.lookAt(new THREE.Vector3(40,40,15))
+var camara= new THREE.OrthographicCamera();
+
+camara.left=window.innerWidth/-2;
+camara.right=window.innerWidth/2;
+camara.top=window.innerHeight/2;
+camara.bottom=window.innerHeight/-2;
+camara.near=0.1;
+camara.far=1000;
+camara.updateProjectionMatrix();
+camara.position.set=(40,-100,100);
+
 
 var malla=new THREE.Mesh(new THREE.BoxGeometry(5,90,10), Marco);
 malla.position.set(-7.5,35,0);
