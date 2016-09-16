@@ -92,7 +92,7 @@ camara.lookAt(new THREE.Vector3(40,40,12))
 
 var malla=new THREE.Mesh(new THREE.BoxGeometry(10,.1,5), Marco);
 malla.position.set(-10,-10,0);
-var malla=new THREE.Mesh(new THREE.BoxGeometry(10,50,5), Marco);
+var malla2=new THREE.Mesh(new THREE.BoxGeometry(10,100,10), Marco);
 malla2.position.set(80,-10,0);
 
 var escena = new THREE.Scene();
