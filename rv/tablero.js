@@ -37,21 +37,22 @@ tablero[0].add(tablero[i]);
 }
 
 var camara = new THREE.PerspectiveCamera();
-camara.position.z = 100;
-camara.position.x = 40;
-camara.position.y = -100;
+camara.position.set(40,-100,100);
 camara.lookAt(new THREE.Vector3(40,40,12))
 
 var forma= new THREE.BoxGeometry(10,5,8);
-var mate= new THREE.MeshLambertMaterial({color: 0xB59402});
+var mate= new THREE.MeshLambertMaterial({color: '#00cc00'});
 var malla= new THREE.Mesh(forma, mate);
 malla.position.set(-10,-10,0);
+var malla2=new THREE.Mesh(forma,mate);
+malla2.position.set(80,-10,0);
 
 var escena = new THREE.Scene();
 for (i = 0; i < 64; i++) {
 escena.add(tablero[i]);
 }
 escena.add(malla);
+escena.add(malla2);
 
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth,window.innerHeight);
