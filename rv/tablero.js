@@ -93,9 +93,9 @@ camara.lookAt(new THREE.Vector3(40,40,12))
 var malla=new THREE.Mesh(new THREE.BoxGeometry(5,90,10), Marco);
 malla.position.set(-7.5,35,0);
 var malla2=new THREE.Mesh(new THREE.BoxGeometry(5,90,10), Marco);
-malla2.position.set(80,35,0);
+malla2.position.set(77.5,35,0);
 var malla3=new THREE.Mesh(new THREE.BoxGeometry(80,5,10), Marco);
-malla3.position.set(35,75,0);
+malla3.position.set(35,77.5,0);
 var malla4=new THREE.Mesh(new THREE.BoxGeometry(80,5,10), Marco);
 malla4.position.set(35,-7.5,0);
 
