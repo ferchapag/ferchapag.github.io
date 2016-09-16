@@ -110,7 +110,7 @@ camara.bottom=window.innerHeight/-2;
 camara.near=0.1;
 camara.far=1000;
 camara.updateProjectionMatrix();
-camara.position.z=100;
+camara.position.z=50;
 
 
 var malla=new THREE.Mesh(new THREE.BoxGeometry(5,90,10), Marco);
