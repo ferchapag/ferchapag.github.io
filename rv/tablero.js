@@ -15,7 +15,7 @@ var lado = 10;
 for (i = 0; i < 10; i++) {
   for (j = 0; j < 10; j++) {
     var material = Gris;
-    if(i==0 || j==9 || i=9|| j==0){
+    if(i==0 || j==0){
     material=Marco;
     }
     else{
