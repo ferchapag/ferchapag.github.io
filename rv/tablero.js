@@ -90,15 +90,15 @@ var camara = new THREE.PerspectiveCamera();
 camara.position.set(40,-100,100);
 camara.lookAt(new THREE.Vector3(40,40,12))
 
-var malla=new THREE.Mesh(new THREE.BoxGeometry(10,.1,5), Marco);
+var malla=new THREE.Mesh(new THREE.BoxGeometry(10,100,10), Marco);
 malla.position.set(-10,-10,0);
-var malla2=new THREE.Mesh(new THREE.BoxGeometry(10,100,10), Marco);
+var malla2=new THREE.Mesh(new THREE.BoxGeometry(10,800,10), Marco);
 malla2.position.set(80,-10,0);
 
 var escena = new THREE.Scene();
 for (i = 0; i < 64; i++) {
 escena.add(tablero[i]);
-escena.add(torre3Malla);
+//escena.add(torre3Malla);
 escena.add(malla);
 escena.add(malla2);
 }
