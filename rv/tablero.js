@@ -1,6 +1,7 @@
 
 var Gris = new THREE.MeshBasicMaterial({color: 0xB0A9A7});
 var Blanco = new THREE.MeshBasicMaterial({color: 0xffffff});
+var Marco = new THREE.MeshBasicMaterial({color: 0xB59402});
 
 function isEven(n) {
    return n % 2 == 0;
@@ -89,15 +90,17 @@ var camara = new THREE.PerspectiveCamera();
 camara.position.set(40,-100,100);
 camara.lookAt(new THREE.Vector3(40,40,12))
 
-
-//malla.position.set(-10,-10,0);
-//var malla2=new THREE.Mesh(forma,mate);
-//malla2.position.set(80,-10,0);
+var malla=new THREE.Mesh(new THREE.BoxGeometry(10,.1,5), Marco);
+malla.position.set(-10,-10,0);
+var malla=new THREE.Mesh(new THREE.BoxGeometry(10,50,5), Marco);
+malla2.position.set(80,-10,0);
 
 var escena = new THREE.Scene();
 for (i = 0; i < 64; i++) {
 escena.add(tablero[i]);
 escena.add(torre3Malla);
+escena.add(malla);
+escena.add(malla)2;
 }
 
 
