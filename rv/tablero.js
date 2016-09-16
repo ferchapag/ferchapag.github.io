@@ -31,7 +31,7 @@ for (i = 0; i < 8; i++) {
 }
 // Juntar cuadros
 for (i = 1; i < 64; i++) {
-tablero[0].add(cuadros[i]);
+tablero[0].add(tablero[i]);
 }
 
 var camara = new THREE.PerspectiveCamera();
