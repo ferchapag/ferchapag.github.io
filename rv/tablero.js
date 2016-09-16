@@ -1,4 +1,3 @@
-
 var Gris = new THREE.MeshBasicMaterial({color: 0xB0A9A7});
 var Blanco = new THREE.MeshBasicMaterial({color: 0xffffff});
 
@@ -40,16 +39,15 @@ var camara = new THREE.PerspectiveCamera();
 camara.position.set(40,-100,100);
 camara.lookAt(new THREE.Vector3(40,40,12))
 
-var forma= new THREE.BoxGeometry(10,5,8);
-var mate= new THREE.MeshLambertMaterial({color: '#00cc00'});
-var malla= new THREE.Mesh(forma, mate);
-malla.position.set(-10,-10,0);
-var malla2=new THREE.Mesh(forma,mate);
-malla2.position.set(80,-10,0);
+var base=new THREE.Mesh(new THREE.BoxGeometry(5,.1,5), new THREE.MeshLambertMaterial({color:0xFFFFFF}));
+base.position.set(-10,-10,0)
+//malla.position.set(-10,-10,0);
+//var malla2=new THREE.Mesh(forma,mate);
+//malla2.position.set(80,-10,0);
 
 var escena = new THREE.Scene();
-escena.add(malla);
-escena.add(malla2);
+escena.add(base);
+//escena.add(malla2);
 for (i = 0; i < 64; i++) {
 escena.add(tablero[i]);
 }
