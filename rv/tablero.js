@@ -1,6 +1,5 @@
 var Gris = new THREE.MeshBasicMaterial({color: 0xB0A9A7});
 var Blanco = new THREE.MeshBasicMaterial({color: 0xffffff});
-var Marco= new THREE.MeshBasicMaterial({color: 0xB59402});
 
 function isEven(n) {
    return n % 2 == 0;
@@ -12,13 +11,9 @@ function isOdd(n) {
 
 var tablero = [];
 var lado = 10;
-for (i = 0; i < 10; i++) {
-  for (j = 0; j < 10; j++) {
+for (i = 0; i < 8; i++) {
+  for (j = 0; j < 8; j++) {
     var material = Gris;
-    if(i==0 || j==0){
-    material=Marco;
-    }
-    else{
       if (isEven(i)) {
          if (isOdd(j)) {
           material = Blanco;
@@ -35,10 +30,10 @@ for (i = 0; i < 10; i++) {
     cubo.position.x = j*lado;
     cubo.position.y = i*lado; 
     tablero.push(cubo);
-  }
+  
 }
 // Juntas los cuadros al tablero
-for (i = 1; i < 100; i++) {
+for (i = 1; i < 64; i++) {
 tablero[0].add(tablero[i]);
 }
 
@@ -52,7 +47,7 @@ camara.lookAt(new THREE.Vector3(40,40,12))
 //malla2.position.set(80,-10,0);
 
 var escena = new THREE.Scene();
-for (i = 0; i < 100; i++) {
+for (i = 0; i < 64; i++) {
 escena.add(tablero[i]);
 }
 
