@@ -100,7 +100,7 @@ for (i = 0; i < 64; i++) {
 escena.add(tablero[i]);
 escena.add(torre3Malla);
 escena.add(malla);
-escena.add(malla)2;
+escena.add(malla2);
 }
 
 
