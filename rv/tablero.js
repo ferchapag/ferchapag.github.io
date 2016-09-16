@@ -86,6 +86,9 @@ torreForma3.merge(base3Malla.geometry, base3Malla.matrix);
 
 var torre3Malla=new THREE.Mesh(torreForma3,material);
 torre3Malla.rotateX(1.57);
+torre3Malla.scaleX(.5);
+torre3Malla.scaleY(.5);
+torre3Malla.scaleZ(.5);
 torre3Malla.position.set(0,0,12);
 var torre4Malla=new THREE.Mesh(torreForma3,Gris);
 torre4Malla.position.set(65,0,12);
