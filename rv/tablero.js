@@ -43,8 +43,8 @@ camara.position.y = -100;
 camara.lookAt(new THREE.Vector3(40,40,12))
 
 var forma= new THREE.BoxGeometry(10,5,8);
-var material= new THREE.MeshLambertMaterial({color: 0xB59402});
-var malla= new THREE.Mesh(forma, material);
+var mate= new THREE.MeshLambertMaterial({color: 0xB59402});
+var malla= new THREE.Mesh(forma, mate);
 malla.position.set(-10,-10,0);
 
 var escena = new THREE.Scene();
