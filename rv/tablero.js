@@ -33,7 +33,7 @@ for (i = 0; i < 8; i++) {
   
 }
 // Juntas los cuadros al tablero
-for (i = 0; i < 64; i++) {
+for (i = 1; i < 64; i++) {
 tablero[0].add(tablero[i]);
 }
 
