@@ -85,7 +85,7 @@ torreForma3.merge(torre2Malla.geometry, torre1Malla.matrix);
 torreForma3.merge(base3Malla.geometry, base3Malla.matrix);
 var torre3Malla=new THREE.Mesh(torreForma3,material);
 torre3Malla.rotateY(-1.57);
-torre3Malla.rotateY(-2.17);
+torre3Malla.rotateX(-2.17);
 torre3Malla.position.set(0,0,30);
 
 //camara
