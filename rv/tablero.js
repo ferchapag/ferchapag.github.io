@@ -38,7 +38,7 @@ tablero[0].add(tablero[i]);
 
 var camara = new THREE.PerspectiveCamera();
 camara.position.z = 100;
-camara.position.x = 50;
+camara.position.x = 20;
 camara.position.y = -100;
 camara.lookAt(new THREE.Vector3(40,40,12))
 
