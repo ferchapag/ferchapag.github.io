@@ -1,6 +1,6 @@
 var Gris = new THREE.MeshBasicMaterial({color: 0xB0A9A7});
 var Blanco = new THREE.MeshBasicMaterial({color: 0xffffff});
-var Marco=new THREE.MeshBasicMaterial({color: 0xB59402});
+var Marco= new THREE.MeshBasicMaterial({color: 0xB59402});
 
 function isEven(n) {
    return n % 2 == 0;
@@ -15,18 +15,21 @@ var lado = 10;
 for (i = 0; i < 10; i++) {
   for (j = 0; j < 10; j++) {
     var material = Gris;
-    if(i==0 || j==9||i=9||j==0){
+    if(i==0 || j==9 || i=9|| j==0){
     material=Marco;
-    }else{
-    if (isEven(i)) {
-      if (isOdd(j)) {
-        material = Blanco;
-      } 
-    } else {
-      if (isEven(j)) {
-        material = Blanco;
-      } 
-    }}
+    }
+    else{
+      if (isEven(i)) {
+         if (isOdd(j)) {
+          material = Blanco;
+         } 
+      } else {
+         if (isEven(j)) {
+         material = Blanco;
+         } 
+      }
+    }
+    
     var geometry = new THREE.BoxGeometry( 10, 10, 10 );
     var cubo = new THREE.Mesh(geometry,material);
     cubo.position.x = j*lado;
