@@ -94,7 +94,7 @@ var torre5Malla=new THREE.Mesh(torreForma3,Blanco);
 torre5Malla.position.set(0,80,30);
 torre5Malla.rotateX(1.57);
 var torre6Malla=new THREE.Mesh(torreForma3,Blanco);
-torre6Malla.position.set80,80,30);
+torre6Malla.position.set(80,80,30);
 torre6Malla.rotateY(1.57);
 
 
