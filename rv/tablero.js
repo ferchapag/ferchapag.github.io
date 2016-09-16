@@ -1,5 +1,5 @@
 //var colorGris = new THREE.Color("rgb(30, 30, 30)");
-var materialGris = new THREE.MeshBasicMaterial({color: 0xB0A9A7);
+var materialGris = new THREE.MeshBasicMaterial({color: 0xB0A9A7});
 //materialGris.color = colorGris;
 //var colorBlanco = new THREE.Color("rgb(255, 255, 255)");
 var materialBlanco = new THREE.MeshBasicMaterial({color: 0xffffff});
