@@ -48,11 +48,12 @@ var malla2=new THREE.Mesh(forma,mate);
 malla2.position.set(80,-10,0);
 
 var escena = new THREE.Scene();
+escena.add(malla);
+escena.add(malla2);
 for (i = 0; i < 64; i++) {
 escena.add(tablero[i]);
 }
-escena.add(malla);
-escena.add(malla2);
+
 
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth,window.innerHeight);
