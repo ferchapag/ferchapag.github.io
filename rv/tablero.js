@@ -13,7 +13,7 @@ function isOdd(n) {
    return Math.abs(n % 2) == 1;
 }
 
-var cuadros = [];
+var tablero = [];
 var cubeSize = 10;
 for (i = 0; i < 8; i++) {
   for (j = 0; j < 8; j++) {
@@ -36,19 +36,19 @@ for (i = 0; i < 8; i++) {
 }
 // Join cuadros
 for (i = 1; i < 64; i++) {
-cuadros[0].add(cuadros[i]);
+tablero[0].add(tablero[i]);
 }
 // var cuboS = new THREE.Mesh(new THREE.BoxGeometry(cubeSize,cubeSize,cubeSize),material);
 //////////////////////////////////////////////////////////////////
 var camara = new THREE.PerspectiveCamera();
 camara.position.z = 100;
-camara.position.x = 55;
-camara.position.y = -55;
+camara.position.x = 100;
+camara.position.y = 100;
 camara.lookAt(new THREE.Vector3(35,35,11))
 
 var escena = new THREE.Scene();
 for (i = 0; i < 64; i++) {
-escena.add(cuadros[i]);
+escena.add(tablero[i]);
 }
 
 var renderizador = new THREE.WebGLRenderer();
