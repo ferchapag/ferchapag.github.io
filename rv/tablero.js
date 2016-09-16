@@ -90,13 +90,13 @@ var camara = new THREE.PerspectiveCamera();
 camara.position.set(40,-100,100);
 camara.lookAt(new THREE.Vector3(40,40,12))
 
-var malla=new THREE.Mesh(new THREE.BoxGeometry(5,100,10), Marco);
+var malla=new THREE.Mesh(new THREE.BoxGeometry(10,100,10), Marco);
 malla.position.set(-10,35,0);
-var malla2=new THREE.Mesh(new THREE.BoxGeometry(5,100,10), Marco);
+var malla2=new THREE.Mesh(new THREE.BoxGeometry(10,100,10), Marco);
 malla2.position.set(80,35,0);
-var malla3=new THREE.Mesh(new THREE.BoxGeometry(80,5,10), Marco);
+var malla3=new THREE.Mesh(new THREE.BoxGeometry(80,10,10), Marco);
 malla3.position.set(35,80,0);
-var malla4=new THREE.Mesh(new THREE.BoxGeometry(80,5,10), Marco);
+var malla4=new THREE.Mesh(new THREE.BoxGeometry(80,10,10), Marco);
 malla4.position.set(35,-10,0);
 
 var escena = new THREE.Scene();
