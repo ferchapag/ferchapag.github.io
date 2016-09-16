@@ -84,7 +84,8 @@ var torreForma3= new THREE.Geometry();
 torreForma3.merge(torre2Malla.geometry, torre1Malla.matrix);
 torreForma3.merge(base3Malla.geometry, base3Malla.matrix);
 var torre3Malla=new THREE.Mesh(torreForma3,material);
-torre3Malla.makeRotationY(1.57);
+matrix =   new THREE.torre3Malla().makeRotationY(1.57)
+
 //camara
 var camara = new THREE.PerspectiveCamera();
 camara.position.set(40,-100,100);
@@ -102,8 +103,7 @@ malla4.position.set(35,-7.5,0);
 var escena = new THREE.Scene();
 for (i = 0; i < 64; i++) {
 escena.add(tablero[i]);
-//escena.add(torre3Malla);
-escena.add(torre3Malla);
+escena.add(matrix);
 escena.add(malla);
 escena.add(malla2);
 escena.add(malla3);
