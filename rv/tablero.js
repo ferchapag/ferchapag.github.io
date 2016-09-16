@@ -14,27 +14,25 @@ var lado = 10;
 for (i = 0; i < 8; i++) {
   for (j = 0; j < 8; j++) {
     var material = Gris;
-      if (isEven(i)) {
-         if (isOdd(j)) {
-          material = Blanco;
-         } 
-      } else {
-         if (isEven(j)) {
-         material = Blanco;
-         } 
-      }
+    if (isEven(i)) {
+      if (isOdd(j)) {
+        material = Blanco;
+      } 
+    } else {
+      if (isEven(j)) {
+        material = Blanco;
+      } 
     }
-    
     var geometry = new THREE.BoxGeometry( 10, 10, 10 );
     var cubo = new THREE.Mesh(geometry,material);
-    cubo.position.x = j*lado;
-    cubo.position.y = i*lado; 
+    cubo.position.x = j*cubeSize;
+    cubo.position.y = i*cubeSize; 
     tablero.push(cubo);
-  
+  }
 }
-// Juntas los cuadros al tablero
+// Juntar cuadros
 for (i = 1; i < 64; i++) {
-tablero[0].add(tablero[i]);
+tablero[0].add(cuadros[i]);
 }
 
 var camara = new THREE.PerspectiveCamera();
