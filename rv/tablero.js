@@ -10,7 +10,6 @@ function isOdd(n) {
 }
 
 var tablero = [];
-var lado = 10;
 for (i = 0; i < 8; i++) {
   for (j = 0; j < 8; j++) {
     var material = Gris;
@@ -25,8 +24,8 @@ for (i = 0; i < 8; i++) {
     }
     var geometry = new THREE.BoxGeometry( 10, 10, 10 );
     var cubo = new THREE.Mesh(geometry,material);
-    cubo.position.x = j*cubeSize;
-    cubo.position.y = i*cubeSize; 
+    cubo.position.x = j*10;
+    cubo.position.y = i*10; 
     tablero.push(cubo);
   }
 }
