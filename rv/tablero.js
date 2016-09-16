@@ -1,9 +1,6 @@
-//var colorGris = new THREE.Color("rgb(30, 30, 30)");
-var materialGris = new THREE.MeshBasicMaterial({color: 0xB0A9A7});
-//materialGris.color = colorGris;
-//var colorBlanco = new THREE.Color("rgb(255, 255, 255)");
-var materialBlanco = new THREE.MeshBasicMaterial({color: 0xffffff});
-//materialBlanco.color = colorBlanco;
+
+var Gris = new THREE.MeshBasicMaterial({color: 0xB0A9A7});
+var Blanco = new THREE.MeshBasicMaterial({color: 0xffffff});
 
 function isEven(n) {
    return n % 2 == 0;
@@ -14,37 +11,36 @@ function isOdd(n) {
 }
 
 var tablero = [];
-var cubeSize = 10;
+var lado = 10;
 for (i = 0; i < 8; i++) {
   for (j = 0; j < 8; j++) {
-    var material = materialGris;
+    var material = Gris;
     if (isEven(i)) {
       if (isOdd(j)) {
-        material = materialBlanco;
+        material = Blanco;
       } 
     } else {
       if (isEven(j)) {
-        material = materialBlanco;
+        material = Blanco;
       } 
     }
     var geometry = new THREE.BoxGeometry( 10, 10, 10 );
     var cubo = new THREE.Mesh(geometry,material);
-    cubo.position.x = j*cubeSize;
-    cubo.position.y = i*cubeSize; 
+    cubo.position.x = j*lado;
+    cubo.position.y = i*lado; 
     tablero.push(cubo);
   }
 }
-// Join cuadros
+// Juntas los cuadros al tablero
 for (i = 1; i < 64; i++) {
 tablero[0].add(tablero[i]);
 }
-// var cuboS = new THREE.Mesh(new THREE.BoxGeometry(cubeSize,cubeSize,cubeSize),material);
-//////////////////////////////////////////////////////////////////
+
 var camara = new THREE.PerspectiveCamera();
 camara.position.z = 100;
-camara.position.x = 100;
-camara.position.y = 100;
-camara.lookAt(new THREE.Vector3(35,35,11))
+camara.position.x = 50;
+camara.position.y = -50;
+camara.lookAt(new THREE.Vector3(40,40,12))
 
 var escena = new THREE.Scene();
 for (i = 0; i < 64; i++) {
