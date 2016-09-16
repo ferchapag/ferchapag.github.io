@@ -1,9 +1,9 @@
-var colorGris = new THREE.Color("rgb(30, 30, 30)");
-var materialGris = new THREE.MeshBasicMaterial();
-materialGris.color = colorGris;
-var colorBlanco = new THREE.Color("rgb(255, 255, 255)");
-var materialBlanco = new THREE.MeshBasicMaterial();
-materialBlanco.color = colorBlanco;
+//var colorGris = new THREE.Color("rgb(30, 30, 30)");
+var materialGris = new THREE.MeshBasicMaterial({color: 0xB0A9A7);
+//materialGris.color = colorGris;
+//var colorBlanco = new THREE.Color("rgb(255, 255, 255)");
+var materialBlanco = new THREE.MeshBasicMaterial({color: 0xffffff});
+//materialBlanco.color = colorBlanco;
 
 function isEven(n) {
    return n % 2 == 0;
@@ -31,7 +31,7 @@ for (i = 0; i < 8; i++) {
     var cubo = new THREE.Mesh(geometry,material);
     cubo.position.x = j*cubeSize;
     cubo.position.y = i*cubeSize; 
-    cuadros.push(cubo);
+    tablero.push(cubo);
   }
 }
 // Join cuadros
