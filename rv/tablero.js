@@ -52,8 +52,6 @@ camara.lookAt(new THREE.Vector3(40,40,12))
 //malla2.position.set(80,-10,0);
 
 var escena = new THREE.Scene();
-escena.add(base);
-//escena.add(malla2);
 for (i = 0; i < 100; i++) {
 escena.add(tablero[i]);
 }
