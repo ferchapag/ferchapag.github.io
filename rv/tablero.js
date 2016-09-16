@@ -1,7 +1,7 @@
 var Gris = new THREE.MeshBasicMaterial({color: 0xB0A9A7});
 var Blanco = new THREE.MeshBasicMaterial({color: 0xffffff});
 var base=new THREE.Mesh(new THREE.BoxGeometry(5,.1,5), new THREE.MeshLambertMaterial({color:0xFFFFFF}));
-base.position.set(-10,-10,0)
+base.position.set(80,80,0)
 
 function isEven(n) {
    return n % 2 == 0;
