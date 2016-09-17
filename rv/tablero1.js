@@ -86,18 +86,18 @@ torreForma3.merge(base3Malla.geometry, base3Malla.matrix);
 var torre3Malla=new THREE.Mesh(torreForma3,material);
 torre3Malla.scale.set(.4,.4,.4);
 torre3Malla.rotateX(1.57);
-torre3Malla.position.set(0,0,12);
-var torre4Malla=new THREE.Mesh(torreForma3,Gris);
+torre3Malla.position.set(1,-1,10);
+var torre4Malla=new THREE.Mesh(torreForma3,material);
 torre4Malla.scale.set(.4,.4,.4);
-torre4Malla.position.set(65,0,12);
+torre4Malla.position.set(68.5,-4,12);
 torre4Malla.rotateX(1.57);
 var torre5Malla=new THREE.Mesh(torreForma3,Blanco);
 torre5Malla.scale.set(.4,.4,.4);
-torre5Malla.position.set(0,80,12);
+torre5Malla.position.set(1,65,12);
 torre5Malla.rotateX(1.57);
 var torre6Malla=new THREE.Mesh(torreForma3,Blanco);
 torre6Malla.scale.set(.4,.4,.4);
-torre6Malla.position.set(65,80,12);
+torre6Malla.position.set(68.5,63,12);
 torre6Malla.rotateX(1.57);
 
 //camara
@@ -107,10 +107,10 @@ camara.left=window.innerWidth/-2;
 camara.right=window.innerWidth/2;
 camara.top=window.innerHeight/2;
 camara.bottom=window.innerHeight/-2;
-camara.near=0.1;
-camara.far=100;
+camara.near=1;
+camara.far=20;
 camara.updateProjectionMatrix();
-camara.position.z=50;
+camara.position.z=20;
 
 
 var malla=new THREE.Mesh(new THREE.BoxGeometry(5,90,10), Marco);
