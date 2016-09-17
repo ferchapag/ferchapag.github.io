@@ -88,17 +88,17 @@ var torre3Malla=new THREE.Mesh(torreForma3,material);
 torre3Malla.scale.set(.4,.4,.4);
 torre3Malla.rotateX(1.57);
 torre3Malla.position.set(1,-1,10);
-var torre4Malla=new THREE.Mesh(torreForma3,Gris);
+var torre4Malla=new THREE.Mesh(torreForma3,material);
 torre4Malla.scale.set(.4,.4,.4);
-torre4Malla.position.set(68.5,-5,12);
+torre4Malla.position.set(68.5,-8,12);
 torre4Malla.rotateX(1.57);
 var torre5Malla=new THREE.Mesh(torreForma3,Blanco);
 torre5Malla.scale.set(.4,.4,.4);
-torre5Malla.position.set(1,70,12);
+torre5Malla.position.set(1,65,12);
 torre5Malla.rotateX(1.57);
 var torre6Malla=new THREE.Mesh(torreForma3,Blanco);
 torre6Malla.scale.set(.4,.4,.4);
-torre6Malla.position.set(68.5,70,12);
+torre6Malla.position.set(68.5,65,12);
 torre6Malla.rotateX(1.57);
 
 //camara
