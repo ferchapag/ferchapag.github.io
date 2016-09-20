@@ -156,6 +156,8 @@ torreMalla5.castShadow=true;
 torreMalla6.castShadow=true;
 tablero.receiveShadow=true;
 iluminacion.castShadow=true;
+iluminacion1.castShadow=true;
+iluminacion2.castShadow=true;
 
 
 document.body.appendChild(renderizador.domElement);
