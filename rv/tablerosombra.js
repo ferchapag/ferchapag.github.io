@@ -1,9 +1,9 @@
 var iluminacion=new THREE.PointLight(0x00FFFF);
-iluminacion.position.set(35,-20,40);
+iluminacion.position.set(35,-20,50);
 var iluminacion1=new THREE.PointLight(0xFF00FF);
-iluminacion1.position.set(-20,90,40);
+iluminacion1.position.set(-10,90,50);
 var iluminacion2=new THREE.PointLight(0xFFFF00);
-iluminacion2.position.set(90,90,40);
+iluminacion2.position.set(90,70,50);
 
 var Gris = new THREE.MeshLambertMaterial({color: 0xB0A9A7});
 var Blanco = new THREE.MeshLambertMaterial({color: 0xffffff});
