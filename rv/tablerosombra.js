@@ -1,9 +1,9 @@
 var iluminacion=new THREE.PointLight(0x00FFFF);
-iluminacion.position.set(35,-10,60);
+iluminacion.position.set(35,-10,53);
 var iluminacion1=new THREE.PointLight(0xFF00FF);
-iluminacion1.position.set(-15,85,60);
+iluminacion1.position.set(-15,85,53);
 var iluminacion2=new THREE.PointLight(0xFFFF00);
-iluminacion2.position.set(85,85,60);
+iluminacion2.position.set(85,85,530);
 
 var Gris = new THREE.MeshLambertMaterial({color: 0xB0A9A7});
 var Blanco = new THREE.MeshLambertMaterial({color: 0xffffff});
@@ -144,6 +144,10 @@ escena.add(iluminacion2);
 var renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth,window.innerHeight);
 renderizador.shadowMapEnabled=true;
+malla.castShadow=true;
+malla2.castShadow=true;
+malla3.castShadow=true;
+malla4.castShadow=true;
 torre3Malla.castShadow=true;
 torre4Malla.castShadow=true;
 torre5Malla.castShadow=true;
