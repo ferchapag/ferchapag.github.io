@@ -33,7 +33,8 @@ for (i = 0; i < 8; i++) {
     var geometry = new THREE.BoxGeometry( 10, 10, 10 );
     var cubo = new THREE.Mesh(geometry,mat);
     cubo.position.x = j*10;
-    cubo.position.y = i*10; 
+    cubo.position.y = i*10;
+    cubo.receiveShadow=true;
     tablero.push(cubo);
   }
 }
@@ -147,7 +148,6 @@ torre3Malla.castShadow=true;
 torre4Malla.castShadow=true;
 torre5Malla.castShadow=true;
 torre6Malla.castShadow=true;
-tablero.receiveShadow=true;
 iluminacion.castShadow=true;
 iluminacion1.castShadow=true;
 iluminacion2.castShadow=true;
