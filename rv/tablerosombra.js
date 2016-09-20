@@ -110,8 +110,8 @@ torre6Malla.rotateX(1.57);
 
 torre3Malla.material.opacity = 1;
 torre4Malla.material.opacity = 0.75;
-torre5Malla.Blanco.opacity = 0.5;
-torre6Malla.Blanco.opacity = 0.25;
+torre5Malla.material.opacity = 0.5;
+torre6Malla.material.opacity = 0.25;
 
 
 //camara
