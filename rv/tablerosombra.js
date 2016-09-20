@@ -108,6 +108,12 @@ torre6Malla.scale.set(.4,.4,.4);
 torre6Malla.position.set(68.5,63,12);
 torre6Malla.rotateX(1.57);
 
+torre3Malla.material.opacity = 1
+torre4Malla.material.opacity = .75
+torre5Malla.Blanco.opacity = .5
+torre6Malla.Blanco.opacity = .25
+
+
 //camara
 var camara = new THREE.PerspectiveCamera();
 camara.position.set(40,-130,100);
