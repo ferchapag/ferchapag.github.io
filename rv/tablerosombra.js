@@ -1,9 +1,9 @@
 var iluminacion=new THREE.PointLight(0x00FFFF);
-iluminacion.position.set(35,-10,30);
+iluminacion.position.set(35,-10,50);
 var iluminacion1=new THREE.PointLight(0xFF00FF);
-iluminacion1.position.set(-15,85,30);
+iluminacion1.position.set(-15,85,50);
 var iluminacion2=new THREE.PointLight(0xFFFF00);
-iluminacion2.position.set(85,85,30);
+iluminacion2.position.set(85,85,50);
 
 var Gris = new THREE.MeshLambertMaterial({color: 0xB0A9A7});
 var Blanco = new THREE.MeshLambertMaterial({color: 0xffffff});
@@ -134,7 +134,7 @@ escena.add(malla);
 escena.add(malla2);
 escena.add(malla3);
 escena.add(malla4);
-//escena.add(iluminacion);
+escena.add(iluminacion);
 escena.add(iluminacion1);
 //escena.add(iluminacion2);
 }
@@ -148,7 +148,7 @@ torre3Malla.castShadow=true;
 torre4Malla.castShadow=true;
 torre5Malla.castShadow=true;
 torre6Malla.castShadow=true;
-//iluminacion.castShadow=true;
+iluminacion.castShadow=true;
 iluminacion1.castShadow=true;
 //iluminacion2.castShadow=true;
 
