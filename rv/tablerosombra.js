@@ -1,8 +1,8 @@
-var iluminacion=new THREE.PointLight(0xFFFFFF);
+var iluminacion=new THREE.PointLight(0xFF00FF);
 iluminacion.position.set(35,-10,30);
-var iluminacion1=new THREE.PointLight(0xFFFFFF);
+var iluminacion1=new THREE.PointLight(0xFFFF00);
 iluminacion1.position.set(-15,85,30);
-var iluminacion2=new THREE.PointLight(0xFFFFFF);
+var iluminacion2=new THREE.PointLight(0x00FFFF);
 iluminacion2.position.set(85,85,30);
 
 var Gris = new THREE.MeshLambertMaterial({color: 0xB0A9A7});
@@ -96,28 +96,21 @@ torre3Malla.rotateX(1.57);
 torre3Malla.position.set(1,-1,10);
 var torre4Malla=new THREE.Mesh(torreForma3,material);
 torre4Malla.scale.set(.4,.4,.4);
-torre4Malla.position.set(70,-1,12);
+torre4Malla.position.set(68.5,-4,12);
 torre4Malla.rotateX(1.57);
 var torre5Malla=new THREE.Mesh(torreForma3,Blanco);
 torre5Malla.scale.set(.4,.4,.4);
-torre5Malla.position.set(1,70,12);
+torre5Malla.position.set(1,65,12);
 torre5Malla.rotateX(1.57);
 var torre6Malla=new THREE.Mesh(torreForma3,Blanco);
 torre6Malla.scale.set(.4,.4,.4);
-torre6Malla.position.set(70,70,12);
+torre6Malla.position.set(68.5,63,12);
 torre6Malla.rotateX(1.57);
 
 //camara
-var camara= new THREE.OrthographicCamera();
-
-camara.left=window.innerWidth/-2;
-camara.right=window.innerWidth/2;
-camara.top=window.innerHeight/2;
-camara.bottom=window.innerHeight/-2;
-camara.near=.1;
-camara.far=100;
-camara.updateProjectionMatrix();
-camara.position.z=100;
+var camara = new THREE.PerspectiveCamera();
+camara.position.set(40,-130,100);
+camara.lookAt(new THREE.Vector3(40,40,15))
 
 
 var malla=new THREE.Mesh(new THREE.BoxGeometry(5,90,10), Marco);
