@@ -17,6 +17,7 @@ document.body.appendChild(renderizador.domElement);
  var loop = function(p) {
    requestAnimationFrame(loop);
    renderizador.render(escena,camara);
+   malla.RotateY(.01);
    malla.Position.x=malla.Position.x+1;
    if(malla.Position.x==700){
     malla.Position.x=malla.Position.x-1
