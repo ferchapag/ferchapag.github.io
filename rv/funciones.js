@@ -13,7 +13,7 @@ renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(100,700);
 document.body.appendChild(renderizador.domElement);
 }
-var main=function(){
+var main=function(p){
   p(1);
   renderizador.render(escena, camara);
   
