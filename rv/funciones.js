@@ -18,9 +18,12 @@ document.body.appendChild(renderizador.domElement);
    requestAnimationFrame(loop);
    renderizador.render(escena,camara);
    malla.rotateY(.01);
-   malla.position.x=malla.position.x+.01;
-   if(malla.position.x>.7){
+   malla.position.x=malla.position.x-.01;
+   if(malla.position.x>.9){
     malla.position.x=malla.position.x-.01;
+    else (malla.position.x<-.5){
+     malla.position.x=malla.position.x+.01;
+    }
    }
  }
  var escena, camara, renderizador,malla,material;
