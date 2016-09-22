@@ -17,10 +17,10 @@ document.body.appendChild(renderizador.domElement);
  var loop = function(p) {
    requestAnimationFrame(loop);
    renderizador.render(escena,camara);
-   malla.RotateY(.01);
-   malla.Position.x=malla.Position.x+1;
-   if(malla.Position.x==700){
-    malla.Position.x=malla.Position.x-1
+   malla.rotateY(.01);
+   malla.position.x=+1;
+   if(malla.position.x==700){
+    malla.position.x=malla.position.x-1
    }
  }
  var escena, camara, renderizador,malla,material;
