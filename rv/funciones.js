@@ -1,5 +1,3 @@
-var escena, camara, renderizador,malla,material;
-
 function init(p) {
 
 material = new THREE.MeshNormalMaterial();
@@ -21,6 +19,6 @@ document.body.appendChild(renderizador.domElement);
    renderizador.render(escena,camara);
    malla.rotateY(.01);
  }
- 
- main(init);
+ var escena, camara, renderizador,malla,material;
+ init(1);
  loop();
