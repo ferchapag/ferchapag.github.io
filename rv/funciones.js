@@ -10,7 +10,7 @@ camara = new THREE.PerspectiveCamera();
 camara.position.z = 3*p;
 
 renderizador = new THREE.WebGLRenderer();
-renderizador.setSize(100,700);
+renderizador.setSize(700,700);
 document.body.appendChild(renderizador.domElement);
 
 }
