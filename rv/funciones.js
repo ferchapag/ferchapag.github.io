@@ -19,8 +19,8 @@ document.body.appendChild(renderizador.domElement);
    renderizador.render(escena,camara);
    malla.rotateY(.01);
    malla.position.x=malla.position.x+.01;
-   if(malla.position.x<15){
-    malla.position.x=malla.position.x-1;
+   if(malla.position.x>5){
+    malla.position.x=malla.position.x-.01;
    }
  }
  var escena, camara, renderizador,malla,material;
