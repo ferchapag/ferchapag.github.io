@@ -20,7 +20,7 @@ document.body.appendChild(renderizador.domElement);
    malla.rotateY(.01);
    malla.position.x=malla.position.x+.01;
    if(malla.position.x<15){
-    malla.position.x=malla.position.x-.01;
+    malla.position.x=malla.position.x-1;
    }
  }
  var escena, camara, renderizador,malla,material;
