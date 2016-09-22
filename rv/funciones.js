@@ -19,7 +19,7 @@ document.body.appendChild(renderizador.domElement);
    renderizador.render(escena,camara);
    malla.rotateY(.01);
    malla.position.x=malla.position.x+.01;
-   if(malla.position.x>.2){
+   if(malla.position.x>.7){
     malla.position.x=malla.position.x-.01;
    }
  }
