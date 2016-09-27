@@ -17,6 +17,7 @@ ventana.setup=function(){
   var lienzo=document.getElementById("Ejemplo-ventana");
   ventana.renderizador=new THREE.WebGLRenderer({canvas:lienzo, antialias: true});
   ventana.renderizador.setSize(window.innerWidth, window.innerHeight);
+  
   ventana.malla=new THREE.Mesh(new THREE.BoxGeometry(1,1,1),new THREE.MeshNormalMaterial());
   ventana.escena.add(ventana.malla)
  }
