@@ -6,7 +6,7 @@ TEXTURA.retrollamada=function(textura){
    TEXTURA.esscena.add(TEXTURA.malla);
   }
   
- TEXTURA.setup=function(){
+TEXTURA.setup=function(){
    TEXTURA=new THREE.Scene();
    var cargador=new TREE.TextureLoader();
    cargador.load("earth.jpg", TEXTURA.retrollamada);
@@ -19,6 +19,7 @@ TEXTURA.retrollamada=function(textura){
    TEXTURA.renderizador=new THREE.WebGLRenderer({canvas: lienzo,
                                                  antialias: true});
    TEXTURA.renderizador.setSize(600,600);
+}
     
 TEXTURA.loop=function(){
    requestAnimationFrame(TEXTURA.loop);
