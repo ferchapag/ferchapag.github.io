@@ -11,7 +11,7 @@ ventana.setup=function(){
   var capturarp=false;
   window.addEventListener(tipo_evento,ventana.listener,capturarp);
   ventana.escena=new THREE.Scene();
-  ventana.camara=new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight 0.1,1000);
+  ventana.camara=new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight*0.1,1000);
   ventana.camara.position.z=5;
   
   var lienzo=document.getElementById("Ejemplo-Ventana");
