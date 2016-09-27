@@ -14,8 +14,8 @@ ventana.setup=function(){
   ventana.camara=new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight,0.1,1000);
   ventana.camara.position.z=5;
   
-  var lienzo=document.getElementById("Ejemplo-Ventana");
-  ventana.renderizador=new THREE.WebGLRenderer({canvas:lienzo, antialias:true});
+  var lienzo=document.getElementById("Ejemplo-ventana");
+  ventana.renderizador=new THREE.WebGLRenderer({canvas:lienzo, antialias: true});
   ventana.renderizador.setSize(window.innerWidth, window.innerHeight);
   ventana.malla=new THREE.Mesh(new THREE.BoxGeometry(1,1,1),new THREE.MeshNormalMaterial());
   ventana.escena.add(ventana.malla)
