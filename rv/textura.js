@@ -22,4 +22,10 @@ TEXTURA.retrollamada=function(textura){
     
     TEXTURA.loop=function(){
       requestAnimationFrame(TEXTURA.loop);
+       if(TEXTURA.malla!==undefined){
+          TEXTURA.malla.rotateX(.01);
+          TEXTURA.malla.rotateY(.01);
+       }
+          
+          
       
