@@ -3,7 +3,7 @@ var ventana=new Object();
 ventana.listener=function(){
   ventana.camara.aspect=window.innerWidth/window.innerHeight;
   ventana.camara.updateProjectionMatrix();
-  ventana.renderizador.setSize(window.innerWidth, window.innerHeight);
+  ventana.renderizador.setSize (window.innerWidth, window.innerHeight);
  }
  
 ventana.setup=function(){
