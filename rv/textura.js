@@ -7,7 +7,7 @@ TEXTURA.retrollamada=function(textura){
   }
   
 TEXTURA.setup=function(){
-   TEXTURA=new THREE.Scene();
+   TEXTURA.escena=new THREE.Scene();
    var cargador=new THREE.TextureLoader();
    cargador.load("earth.jpg",
                  TEXTURA.retrollamada);
