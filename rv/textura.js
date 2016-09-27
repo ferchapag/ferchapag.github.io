@@ -26,6 +26,11 @@ TEXTURA.loop=function(){
      TEXTURA.malla.rotateX(.01);
      TEXTURA.malla.rotateY(.01);
    }
+   TEXTURA.renderizador.render(TEXTURA.escena, TEXTURA.camara);
+   
+}
+TEXTURA.setup();
+TEXTURA.loop();
           
           
       
