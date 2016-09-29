@@ -94,11 +94,7 @@ TEXTURA.loop=function(){
      TEXTURA.malla.rotateX(.01);
      TEXTURA.malla.rotateY(.01);
    }
-   TEXTURA.renderizador.render(TEXTURA.escena, TEXTURA.camara);
-   
-}
-TEXTURA.setup();
-TEXTURA.loop();
+
 
 var torreForma1= new THREE.Geometry();
 torreForma1.merge(pilarMalla.geometry, pilarMalla.matrix);
@@ -165,3 +161,8 @@ renderizador.setSize(window.innerWidth,window.innerHeight);
 
 document.body.appendChild(renderizador.domElement);
 renderizador.render(escena,camara);
+      TEXTURA.renderizador.render(TEXTURA.escena, TEXTURA.camara);
+   
+}
+TEXTURA.setup();
+TEXTURA.loop();
