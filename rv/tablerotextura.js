@@ -38,8 +38,8 @@ tablero[0].add(tablero[i]);
 //Torre
 var base= new THREE.Shape();
 base.moveTo(-7,-4);
-base.lineTo(-7,3);
-base.lineTo(7,3);
+base.lineTo(-7,4);
+base.lineTo(7,4);
 base.lineTo(7,-4);
 base.lineTo(-7,-4);
 var baseForma=new THREE.ExtrudeGeometry(base,{amount:10});
