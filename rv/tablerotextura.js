@@ -65,10 +65,49 @@ var pilarMalla=new THREE.Mesh(pilarForma,material);
 var base2Malla=new THREE.Mesh(base2Forma,material);
 var base3Malla=new THREE.Mesh(base3Forma,material);
 
+
+
+
 var torreForma= new THREE.Geometry();
 torreForma.merge(revMalla.geometry, revMalla.matrix);
 torreForma.merge(baseMalla.geometry, baseMalla.matrix);
-var torreMalla=new THREE.Mesh(torreForma,material);
+//var torreMalla=new THREE.Mesh(torreForma,material);
+
+var TEXTURA =new Object();
+
+TEXTURA.retrollamada=function(textura){
+   var material=new THREE.MeshBasicMaterial({map: textura});
+   TEXTURA.malla=new THREE.Mesh(new THREE.torreForma, material);
+   TEXTURA.escena.add(TEXTURA.malla);
+  }
+  
+TEXTURA.setup=function(){
+   TEXTURA.escena=new THREE.Scene();
+   var cargador=new THREE.TextureLoader();
+   cargador.load("mblanco.jpg",
+                 TEXTURA.retrollamada);
+   TEXTURA.camara=new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight,
+                                               0.1,
+                                               1000);
+   TEXTURA.camara.position.z=5;
+    
+   var lienzo=document.getElementById("ejemplo-textura");
+   TEXTURA.renderizador=new THREE.WebGLRenderer({canvas: lienzo,
+                                                 antialias: true});
+   TEXTURA.renderizador.setSize(600,600);
+}
+    
+TEXTURA.loop=function(){
+   requestAnimationFrame(TEXTURA.loop);
+   if(TEXTURA.malla!==undefined){
+     TEXTURA.malla.rotateX(.01);
+     TEXTURA.malla.rotateY(.01);
+   }
+   TEXTURA.renderizador.render(TEXTURA.escena, TEXTURA.camara);
+   
+}
+TEXTURA.setup();
+TEXTURA.loop();
 
 var torreForma1= new THREE.Geometry();
 torreForma1.merge(pilarMalla.geometry, pilarMalla.matrix);
