@@ -41,7 +41,7 @@ torreForma.merge(baseMalla.geometry, baseMalla.matrix);
 //var torreMalla=new THREE.Mesh(torreForma,material);
    
    
-   TEXTURA.malla=new THREE.Mesh(new THREE.torreForma, material);
+   TEXTURA.malla=new THREE.Mesh(torreForma, material);
    TEXTURA.escena.add(TEXTURA.malla);
   }
   
