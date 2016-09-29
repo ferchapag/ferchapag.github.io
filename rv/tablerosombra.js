@@ -116,7 +116,7 @@ torre6Malla.material.opacity = 0.25;
 
 //camara
 var camara = new THREE.PerspectiveCamera();
-camara.position.set(100,100,100);
+camara.position.set(30,-100,100);
 camara.lookAt(new THREE.Vector3(40,40,15))
 
 
