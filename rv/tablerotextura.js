@@ -110,11 +110,11 @@ var torreForma3= new THREE.Geometry();
 torreForma3.merge(torre2Malla.geometry, torre1Malla.matrix);
 torreForma3.merge(base3Malla.geometry, base3Malla.matrix);
 
-var torre3Malla=new THREE.Mesh(torreForma3,material);
+var torre3Malla=new THREE.Mesh(torreForma3,Gris);
 torre3Malla.scale.set(.4,.4,.4);
 torre3Malla.rotateX(1.57);
 torre3Malla.position.set(1,-1,10);
-var torre4Malla=new THREE.Mesh(torreForma3,material);
+var torre4Malla=new THREE.Mesh(torreForma3,Gris);
 torre4Malla.scale.set(.4,.4,.4);
 torre4Malla.position.set(68.5,-4,12);
 torre4Malla.rotateX(1.57);
