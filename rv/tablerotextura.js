@@ -2,6 +2,9 @@ var escena;
 var camara;
 var tablero=[];
 var renderizador;
+var mat1 = false;
+var mat2 = false;
+var mat3 = false;
 
 var fnBlack = function(textura) {
    Gris = new THREE.MeshBasicMaterial({map: textura});  
