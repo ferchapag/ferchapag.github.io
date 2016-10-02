@@ -20,13 +20,13 @@ var fnWood = function(textura) {
 }
 
 var cargadorBlack=new THREE.TextureLoader();
-cargadorBlack.load("marmolNegro.jpeg",
+cargadorBlack.load("mnegro.jpg",
               fnBlack);
 var cargadorWhite=new THREE.TextureLoader();
-cargadorWhite.load("marmolBlanco.jpeg",
+cargadorWhite.load("mblanco.jpg",
               fnWhite);
 var cargadorWood=new THREE.TextureLoader();
-cargadorWood.load("madera.jpeg",
+cargadorWood.load("madera.jpg",
               fnWood);
 
 function isEven(n) {
