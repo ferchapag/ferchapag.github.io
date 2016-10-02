@@ -1,7 +1,30 @@
-var Gris = new THREE.MeshBasicMaterial({color: 0xB0A9A7});
-var Blanco = new THREE.MeshBasicMaterial({color: 0xffffff});
-var Marco = new THREE.MeshBasicMaterial({color: 0xB59402});
+var escena;
+var camara;
+var tablero=[];
+var renderizador;
 
+var fnBlack = function(textura) {
+   Gris = new THREE.MeshBasicMaterial({map: textura});  
+   mat1 = true;
+}
+var fnWhite = function(textura) {
+   Blanco = new THREE.MeshBasicMaterial({map: textura});  
+   mat2 = true;
+}
+var fnWood = function(textura) {
+   Marco = new THREE.MeshBasicMaterial({map: textura});  
+   mat3 = true;
+}
+
+var cargadorBlack=new THREE.TextureLoader();
+cargadorBlack.load("marmolNegro.jpeg",
+              fnBlack);
+var cargadorWhite=new THREE.TextureLoader();
+cargadorWhite.load("marmolBlanco.jpeg",
+              fnWhite);
+var cargadorWood=new THREE.TextureLoader();
+cargadorWood.load("madera.jpeg",
+              fnWood);
 
 function isEven(n) {
    return n % 2 == 0;
@@ -11,7 +34,7 @@ function isOdd(n) {
    return Math.abs(n % 2) == 1;
 }
 
-var tablero = [];
+var poner=function(){
 for (i = 0; i < 8; i++) {
   for (j = 0; j < 8; j++) {
     var mat = Gris;
@@ -38,8 +61,8 @@ tablero[0].add(tablero[i]);
 //Torre
 var base= new THREE.Shape();
 base.moveTo(-7,-4);
-base.lineTo(-7,4);
-base.lineTo(7,4);
+base.lineTo(-7,0);
+base.lineTo(7,0);
 base.lineTo(7,-4);
 base.lineTo(-7,-4);
 var baseForma=new THREE.ExtrudeGeometry(base,{amount:10});
@@ -65,36 +88,10 @@ var pilarMalla=new THREE.Mesh(pilarForma,material);
 var base2Malla=new THREE.Mesh(base2Forma,material);
 var base3Malla=new THREE.Mesh(base3Forma,material);
 
-
-
-
 var torreForma= new THREE.Geometry();
 torreForma.merge(revMalla.geometry, revMalla.matrix);
 torreForma.merge(baseMalla.geometry, baseMalla.matrix);
-//var torreMalla=new THREE.Mesh(torreForma,material);
-
-var TEXTURA =new Object();
-
-TEXTURA.retrollamada=function(textura){
-   var material=new THREE.MeshBasicMaterial({map: textura});
-   TEXTURA.malla=new THREE.Mesh(new THREE.torreForma, material);
-   TEXTURA.escena.add(TEXTURA.malla);
-  }
-  
-TEXTURA.setup=function(){
-   TEXTURA.escena=new THREE.Scene();
-   var cargador=new THREE.TextureLoader();
-   cargador.load("mblanco.jpg",
-                 TEXTURA.retrollamada);
-}
-    
-TEXTURA.loop=function(){
-   requestAnimationFrame(TEXTURA.loop);
-   if(TEXTURA.malla!==undefined){
-     TEXTURA.malla.rotateX(.01);
-     TEXTURA.malla.rotateY(.01);
-   }
-
+var torreMalla=new THREE.Mesh(torreForma,material);
 
 var torreForma1= new THREE.Geometry();
 torreForma1.merge(pilarMalla.geometry, pilarMalla.matrix);
@@ -128,7 +125,7 @@ torre6Malla.position.set(68.5,63,12);
 torre6Malla.rotateX(1.57);
 
 //camara
-var camara = new THREE.PerspectiveCamera();
+camara = new THREE.PerspectiveCamera();
 camara.position.set(40,-130,100);
 camara.lookAt(new THREE.Vector3(40,40,15))
 
@@ -141,7 +138,7 @@ malla3.position.set(35,77.5,0);
 var malla4=new THREE.Mesh(new THREE.BoxGeometry(80,5,10), Marco);
 malla4.position.set(35,-7.5,0);
 
-var escena = new THREE.Scene();
+escena = new THREE.Scene();
 for (i = 0; i < 64; i++) {
 escena.add(tablero[i]);
 escena.add(torre3Malla);
@@ -156,13 +153,22 @@ escena.add(malla4);
 
 
 
-var renderizador = new THREE.WebGLRenderer();
+renderizador = new THREE.WebGLRenderer();
 renderizador.setSize(window.innerWidth,window.innerHeight);
 
 document.body.appendChild(renderizador.domElement);
-renderizador.render(escena,camara);
-      TEXTURA.renderizador.render(TEXTURA.escena, TEXTURA.camara);
-   
 }
-TEXTURA.setup();
-TEXTURA.loop();
+var didSetup = false;
+
+var loop = function(){
+   requestAnimationFrame(loop);
+   if(mat1 && mat2 && mat3){
+      if (didSetup == false) {
+      setup();
+      didSetup = true;
+      }
+   
+   renderizador.render(escena, camara);
+   }
+}
+loop();
