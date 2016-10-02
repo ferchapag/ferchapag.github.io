@@ -167,7 +167,7 @@ var loop = function(){
    requestAnimationFrame(loop);
    if(mat1 && mat2 && mat3){
       if (didSetup == false) {
-      setup();
+      poner();
       didSetup = true;
       }
    
