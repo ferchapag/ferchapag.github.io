@@ -28,8 +28,8 @@ setup=function(){
   renderizador.setSize(600,600);
   
   escena=new THREE.Scene();
-  escena.add(arbol1.malla);
-  escena.add(arbol2.malla)
+  escena.add(arbol1);
+  escena.add(arbol2)
 }
 
 loop=function(){
