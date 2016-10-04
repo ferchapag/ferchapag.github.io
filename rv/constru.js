@@ -14,32 +14,30 @@ function Arbol(){
   this.malla=new THREE.Mesh(arbolForma, material);
  }
  
-var CONSTRUCTOR=new Object();
-
-CONSTRUCTOR.setup=function(){
+setup=function(){
   var arbol1=new Arbol();
   var arbol2=new Arbol();
   
   arbol1.malla.position.x=-5;
   arbol2.malla.position.x=5;
   
-  CONSTRUCTOR.camara=new THREE.PerspectiveCamera();
-  CONSTRUCTOR.camara.position.z=20;
+  camara=new THREE.PerspectiveCamera();
+  camara.position.z=20;
   
   var lienzo=document.getElementById("ejemplo-constructor");
-  CONSTRUCTOR.renderizador=new THREE.WebGLRenderer({canvas:lienzo, antialias:true});
-  CONSTRUCTOR.renderizador.setSize(600,600);
+  renderizador=new THREE.WebGLRenderer({canvas:lienzo, antialias:true});
+  renderizador.setSize(600,600);
   
-  CONSTRUCTOR.escena=new THREE.Scene();
-  CONSTRUCTOR.escena.add(arbol1.malla);
-  CONSTRUCTOR.escena.add(arbol2.malla);
+  escena=new THREE.Scene();
+  escena.add(arbol1.malla);
+  escena.add(arbol2.malla);
 }
 
-CONSTRUCTOR.loop=function(){
-  requestAnimationFrame(CONSTRUCTOR.loop);
-  CONSTRUCTOR.renderizador.render(CONSTRUCTOR.escena,CONSTRUCTOR.camara);
+loop=function(){
+  requestAnimationFrame(loop);
+  renderizador.render(escena,camara);
 }
-CONSTRUCTOR.setup();
-CONSTRUCTOR.loop();
+setup();
+loop();
 
   
