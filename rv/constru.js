@@ -17,9 +17,11 @@ function Arbol(){
 setup=function(){
   var arbol1=new Arbol();
   var arbol2=new Arbol();
+  var arbol3=new Arbol();
   
   arbol1.malla.position.x=-5;
   arbol2.malla.position.x=5;
+  arbol3.malla.position.x=0;
   
   camara=new THREE.PerspectiveCamera();
   camara.position.z=20;
@@ -31,6 +33,7 @@ setup=function(){
   escena=new THREE.Scene();
   escena.add(arbol1.malla);
   escena.add(arbol2.malla);
+  escena.add(arbol3.malla);
 }
 
 loop=function(){
