@@ -36,6 +36,7 @@ tablero[0].add(tablero[i]);
    var material=new THREE.MeshNormalMaterial();
   this.malla=new THREE.Mesh(tablero, material);
  }
+}
  
 setup=function(){
  
