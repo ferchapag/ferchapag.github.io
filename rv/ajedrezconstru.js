@@ -33,6 +33,8 @@ for (i = 0; i < 8; i++) {
 for (i = 1; i < 64; i++) {
 tablero[0].add(tablero[i]);
 }
+   var material=new THREE.MeshNormalMaterial();
+  this.malla=new THREE.Mesh(tablero, material);
  }
  
 setup=function(){
