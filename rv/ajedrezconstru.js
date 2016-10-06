@@ -1,6 +1,6 @@
 var tablero=[];
 
-function tablero(){
+function tab(){
 function isEven(n) {
    return n % 2 == 0;
 }
