@@ -3,7 +3,7 @@ THREE.Object3D.call(this);
 var piernaizq=new THREE.Mesh(new THREE.BoxGeometry(1,5,1));
 var piernader=new THREE.Mesh(new THREE.BoxGeometry(1,5,1));
 var cuerpo=new THREE.Mesh(new THREE.BoxGeometry(5,10,5));
-this.add(this.piernaizq,this.piernader,this.cuerpo);
+this.add(this.piernaizq, this.piernader, this.cuerpo);
 this.piernaizq.position.z=-2;
 this.piernaizq.position.y=-2.5;
 this.piernader.position.z=2;
@@ -14,7 +14,7 @@ var pieza
 Pieza.prototype=new THREE.Object3D
 
 function setup(){
-pieza=new Pieza();
+ pieza=new Pieza();
   
 
   camara=new THREE.PerspectiveCamera();
@@ -29,9 +29,9 @@ pieza=new Pieza();
 }
 
 function loop(){
-pieza.rotateY=.1;
-requestAnimationFrame(loop);
-renderizador.render(escena,camara);
+ pieza.rotateY=.1;
+ requestAnimationFrame(loop);
+ renderizador.render(escena,camara);
 
 }
 
