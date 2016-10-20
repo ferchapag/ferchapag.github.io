@@ -3,11 +3,14 @@ function Pieza(){
 THREE.Object3D.call(this);
 this.piernaizq=new THREE.Mesh(new THREE.BoxGeometry(1,5,1));
 this.piernader=new THREE.Mesh(new THREE.BoxGeometry(1,5,1));
+this.brazoizq=new THREE.Mesh(new THREE.BoxGeometry(1,2.5,1));
+this.brazoder=new THREE.Mesh(new THREE.BoxGeometry(1,2.5,1));
 var cuerpo=new THREE.Mesh(new THREE.BoxGeometry(5,10,5));
-this.add(this.piernaizq, this.piernader, cuerpo);
-this.piernaizq.position.set(0,-2.5,-3);
-this.piernader.position.set(0,-2.5,3);
-
+this.add(this.piernaizq, this.piernader, this.brazoizq, this.brazoder, cuerpo);
+this.piernaizq.position.set(0,-2.5,-2);
+this.piernader.position.set(0,-2.5,2);
+this.brazoizq.position.set(0,1.5,-3);
+this.brazoder.position.set(0,1.5,3);
 cuerpo.position.y=2.5;
 }
 var pieza
@@ -34,6 +37,8 @@ loop=function(){
  pieza.rotateY(.01);
  pieza.piernaizq.rotateZ(.01);
  pieza.piernader.rotateZ(-.01);
+ pieza.brazoizq.rotateZ(-.01);
+ pieza.brazoader.rotateZ(.01);
  
 }
 
