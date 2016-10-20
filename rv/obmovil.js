@@ -12,7 +12,7 @@ cuerpo.position.z=2.5;
 var pieza
 Pieza.prototype=new THREE.Object3D
 
-function setup(){
+setup=function(){
  pieza=new Pieza();
   
 
@@ -27,7 +27,7 @@ function setup(){
   escena.pieza;
 }
 
-function loop(){
+loop=function{
  pieza.rotateY=.1;
  requestAnimationFrame(loop);
  renderizador.render(escena,camara);
