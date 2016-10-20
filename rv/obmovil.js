@@ -3,7 +3,7 @@ THREE.Object3D.call(this);
 var piernaizq=new THREE.Mesh(new THREE.BoxGeometry(1,5,1));
 var piernader=new THREE.Mesh(new THREE.BoxGeometry(1,5,1));
 var cuerpo=new THREE.Mesh(new THREE.BoxGeometry(5,10,5));
- this.add(piernaizq, piernader, cuerpo);
+add(piernaizq, piernader, cuerpo);
 piernaizq.position.z=-2;
 piernaizq.position.y=-2.5;
 piernader.position.z=2;
