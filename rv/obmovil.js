@@ -1,4 +1,5 @@
 function Pieza(){
+ 
 THREE.Object3D.call(this);
 var piernaizq=new THREE.Mesh(new THREE.BoxGeometry(1,5,1));
 var piernader=new THREE.Mesh(new THREE.BoxGeometry(1,5,1));
@@ -17,7 +18,7 @@ function setup(){
  pieza=new Pieza();
  
   camara=new THREE.PerspectiveCamera();
-  camara.position.z=10;
+  camara.position.z=20;
   
   var lienzo=document.getElementById("objeto movil");
   renderizador=new THREE.WebGLRenderer({canvas:lienzo, antialias:true});
@@ -28,10 +29,10 @@ function setup(){
 }
 
 loop=function(){
- pieza.rotateY=.1;
+
  requestAnimationFrame(loop);
  renderizador.render(escena,camara);
-
+ pieza.rotateZ(.01);
 }
 
 setup();
