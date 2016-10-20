@@ -31,7 +31,7 @@ function setup(){
 }
 
 loop=function(){
- if (pieza.piernaizq.rotatationZ>1.5){
+ if (pieza.piernaizq.rotationZ>1.5){
   pieza.piernaizq.rotateZ=pieza.piernaizq.rotateZ-1;
  }
  
