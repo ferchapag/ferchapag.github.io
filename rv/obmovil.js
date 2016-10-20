@@ -33,8 +33,8 @@ loop=function(){
  requestAnimationFrame(loop);
  renderizador.render(escena,camara);
  pieza.rotateY(.01);
- pieza.piernzaizq.rotateZ(.01);
- pieza.piernzader.rotateZ(-.01);
+ pieza.piernaizq.rotateZ(.01);
+ pieza.piernader.rotateZ(-.01);
 }
 
 setup();
