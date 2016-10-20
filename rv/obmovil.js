@@ -41,7 +41,7 @@ loop=function(){
  pieza.piernaizq.rotateZ(.01);
  pieza.piernader.rotateZ(-.01);
  pieza.brazoizq.rotateZ(-.01);
- pieza.brazoader.rotateZ(.01);
+ pieza.brazoder.rotateZ(.01);
  
 }
 
