@@ -31,17 +31,15 @@ function setup(){
 }
 
 loop=function(){
- if (pieza.piernaizq.rotationZ>>1.5){
-  pieza.piernaizq.rotateZ=pieza.piernaizq.rotateZ-1;
- }
- 
+ for (i = 0; i < 1.57; i=i+.01) {
  requestAnimationFrame(loop);
  renderizador.render(escena,camara);
  pieza.rotateY(.01);
- pieza.piernaizq.rotateZ(.01);
- pieza.piernader.rotateZ(-.01);
- pieza.brazoizq.rotateZ(-.01);
- pieza.brazoder.rotateZ(.01);
+ pieza.piernaizq.rotateZ(i);
+ pieza.piernader.rotateZ(-i);
+ pieza.brazoizq.rotateZ(-i);
+ pieza.brazoder.rotateZ(i);
+ }
  
 }
 
