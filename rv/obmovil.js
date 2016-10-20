@@ -31,8 +31,8 @@ function setup(){
 }
 
 loop=function(){
- if (pieza.piernaizq.rotateZ(.01)>1.5){
-  pieza.piernaizq.rotateZ=pieza.piernaizq.rotateZ(-.01);
+ if (pieza.piernaizq.rotateZ>1.5){
+  pieza.piernaizq.rotateZ=pieza.piernaizq.rotateZ-1;
  }
  
  requestAnimationFrame(loop);
