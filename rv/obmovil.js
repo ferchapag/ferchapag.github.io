@@ -17,7 +17,7 @@ setup=function(){
   
 
   camara=new THREE.PerspectiveCamera();
-  camara.position.z=20;
+  camara.position.z=5;
   
   var lienzo=document.getElementById("objeto movil");
   renderizador=new THREE.WebGLRenderer({canvas:lienzo, antialias:true});
