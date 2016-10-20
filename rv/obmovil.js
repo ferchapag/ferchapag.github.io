@@ -5,8 +5,8 @@ this.piernaizq=new THREE.Mesh(new THREE.BoxGeometry(1,5,1));
 this.piernader=new THREE.Mesh(new THREE.BoxGeometry(1,5,1));
 var cuerpo=new THREE.Mesh(new THREE.BoxGeometry(5,10,5));
 this.add(this.piernaizq, this.piernader, cuerpo);
-this.piernaizq.position.set(0,-2.5,-2);
-this.piernader.position.set(0,-2.5,2);
+this.piernaizq.position.set(0,-2.5,-3);
+this.piernader.position.set(0,-2.5,3);
 
 cuerpo.position.y=2.5;
 }
@@ -34,6 +34,7 @@ loop=function(){
  pieza.rotateY(.01);
  pieza.piernaizq.rotateZ(.01);
  pieza.piernader.rotateZ(-.01);
+ 
 }
 
 setup();
