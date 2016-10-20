@@ -9,7 +9,7 @@ this.piernaizq.position.z=-2;
 this.piernaizq.position.y=-2.5;
 this.piernader.position.z=2;
 this.piernader.position.y=-2.5;
-cuerpo.position.z=2.5;
+this.cuerpo.position.z=2.5;
 }
 var pieza
 Pieza.prototype=new THREE.Object3D
