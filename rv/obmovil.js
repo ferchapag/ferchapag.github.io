@@ -32,6 +32,7 @@ loop=function(){
 
  requestAnimationFrame(loop);
  renderizador.render(escena,camara);
+ pieza.rotateY(.01);
  pieza.rotateZ(.01);
 }
 
