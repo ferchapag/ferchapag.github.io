@@ -8,7 +8,7 @@ Agent.prototype.sense=function(evironment) {};
 Agent.prototype.plan=function(environment) {};
 Agent.prototype.act= function(environment) {};
 function Environment(){
-  Three.Scene.call(this);
+  THREE.Scene.call(this);
 }
 Environment.prototype=new THREE.Scene();
 Environment.prototype.sense=function(){
