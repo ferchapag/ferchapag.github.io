@@ -33,6 +33,8 @@ function Pelota(r, x=0, y=0){
   Agent.call(this,x,y);
   this.add(new THREE.Mesh( new THREE.SphereGeometry(r),
                          new THREE.MeshNormalMaterial()));
+  this.add(new THREE.Mesh( new THREE.SphereGeometry(r),
+                         new THREE.MeshNormalMaterial()));
   this.step=.1;
   this.colision=0;
   this.radius=r;
@@ -89,7 +91,6 @@ function setup(){
   entorno.add(new Pared(1,7,-1));
   entorno.add(new Pared(1,-7,-1));
   entorno.add(new Pelota(0.5));
-  entorno.add(new Pelota(5));
   entorno.add(camara);
 
   var lienzo=document.getElementById("agente");
