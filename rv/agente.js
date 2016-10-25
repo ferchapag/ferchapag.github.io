@@ -53,7 +53,7 @@ Pelota.prototype.sense=function(environment){
   
   if ((obstaculo1.length>0 &&
      (obstaculo1[0].distance<=this.radius) )||
-      obstaculo2.length>0 &&
+      (obstaculo2.length>0 &&
       (obstaculo2[0].distance <=this.radius) ) )
     this.colision=1;
   else
