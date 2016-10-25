@@ -33,13 +33,13 @@ function Pelota(r, x=0, y=0){
   Agent.call(this,x,y);
   this.add(new THREE.Mesh( new THREE.SphereGeometry(r),
                          new THREE.MeshNormalMaterial()));
-  this.add(new THREE.Mesh( new THREE.SphereGeometry(r),
-                         new THREE.MeshNormalMaterial()));
   this.step=.1;
   this.colision=0;
   this.radius=r;
   this.sensor=new THREE.Raycaster(this.position,
                                  new THREE.Vector3(1,0,0));
+  this.sensor=new THREE.Raycaster(this.position,
+                                 new THREE.Vector3(1,2,0));
 }
 
 Pelota.prototype=new Agent();
