@@ -3,7 +3,7 @@ function Agent(x=0, y=0){
   this.position.x=x;
   this.position.y=y;
  }
- Agent.prototype=new THREE.Object3D();
+Agent.prototype=new THREE.Object3D();
 Agent.prototype.sense=function(environment) {};
 Agent.prototype.plan=function(environment) {};
 Agent.prototype.act= function(environment) {};
@@ -11,6 +11,7 @@ Agent.prototype.act= function(environment) {};
 function Environment(){
   THREE.Scene.call(this);
 }
+Environment.prototype=new THREE.Scene();
 
 function Wall(size,x,y){
   THREE.Mesh.call(this,
