@@ -2,19 +2,52 @@ function Wall(size,x,y){
   THREE.Mesh.call(this,
                   new THREE.BoxGeometry(size,size,size),
                   new THREE.MeshNormalMaterial());
-function Agent(x=0, y=0){
-  THREE.Object3D.call(this);
+  this.size=size;
   this.position.x=x;
   this.position.y=y;
- }
- Agent.prototype=new THREE.Object3D();
-Agent.prototype.sense=function(evironment) {};
-Agent.prototype.plan=function(environment) {};
-Agent.prototype.act= function(environment) {};
-function Environment(){
-  THREE.Scene.call(this);
+}
+Wall.prototype=new THREE.Mesh();
+
+Environment.prototype.setMap=function(map){
+  var _offset= Math.floor(map.length/2);
+  
+  for(var i=0; i<map.length; i++){
+    for(var j=0; j<map.length; j++){
+      if (map[i][j]==="x")
+        this.add(new Wall(1, j- _offset, - (i- _offset)));
+      else if (map[i][j]==="r")
+        this.add(new Robot(.5, j- _offset, - (i- _offset)));
+}}
 }
 
+function setup(){
+  var mapa=new Array();
+  mapa[0]= "xxxxxxxxxxxxxxxxxxxxxxxxx";
+  mapa[1]= "xr           r          x";
+  mapa[2]= "x                       x";
+  mapa[3]= "x                       x";
+  mapa[4]= "x                       x";
+  mapa[5]= "x                      rx";
+  mapa[6]= "xxxxxxxxxx      xxxxxxxxx";
+  mapa[7]= "xr           r          x";
+  mapa[8]= "x                       x";
+  mapa[9]= "x                       x";
+  mapa[10]="x                       x";
+  mapa[11]="x                      rx";
+  mapa[12]="xxxxxxxxxx    xxxxxxxxxxx";
+  mapa[13]="xr             r       rx";
+  mapa[14]="x                       x";
+  mapa[15]="x     r               r x";
+  mapa[16]="xxxxxxxxxxx      xxxxxxxx";
+  mapa[17]="xr           r          x";
+  mapa[18]="x                       x";
+  mapa[19]="x                      rx";
+  mapa[20]="xxxxxxxxxx  xxxxxxxxxxxxx";
+  mapa[21]="xr           r          x";
+  mapa[22]="x                      rx";
+  mapa[23]="xxxxxxxxxxxxxxxxxxxxxxxxx";
+  
+        
   
 Environment.prototype=new THREE.Scene();
 Environment.prototype.sense=function(){
@@ -23,6 +56,10 @@ Environment.prototype.sense=function(){
       this.children[i].sense(this);
   }
 }
+
+  
+  
+
 Environment.prototype.plan=function(){
   for (var i=0; i < this.children.length; i++){
     if(this.children[i].plan !==undefined)
