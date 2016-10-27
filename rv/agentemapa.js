@@ -54,7 +54,7 @@ Robot.prototype.sense=function(environment){
     this.sensor.colision=true;
   else
     this.sensor.colision=false;
-};
+}
 
 Robot.prototype.plan=function(environment){
   this.actuator.commands=[];
@@ -63,7 +63,7 @@ Robot.prototype.plan=function(environment){
     this.actuator.commands.push('rotateCCW');
   else
     this.actuator.commands.push('goStraight');
-};
+}
 
 Robot.prototype.act=function(environment){
   var command=this.actuator.commands.pop();
@@ -74,7 +74,18 @@ Robot.prototype.act=function(environment){
     this.operations[command](this);
   else
     console.log('Unknown command');
-};
+}
+
+Robot.prototype.operations={};
+
+Robot.prototype.operations.goStraight=function(robot, distance){
+  if(distance===undefined)
+    distance=.05;
+  robot.position.x += distance*Math.cos(robot.rotation.z);
+  robot.position.y += distance*Math.sin(robot.rotation.z);
+  
+  
+    
 
 Environment.prototype.setMap=function(map){
   var _offset= Math.floor(map.length/2);
