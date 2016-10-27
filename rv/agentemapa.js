@@ -72,9 +72,9 @@ Robot.prototype.sense=function(environment){
   
   if((obstaculo.length>0 &&
      (obstaculo[0].distance<= .5)))
-    this.sensor.colision=true;
+    this.sensor.collision=true;
   else
-    this.sensor.colision=false;
+    this.sensor.collision=false;
 }
 
 Robot.prototype.plan=function(environment){
