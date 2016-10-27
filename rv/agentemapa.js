@@ -8,9 +8,76 @@ function Wall(size,x,y){
 }
 Wall.prototype=new THREE.Mesh();
 
+function Agent(x=0, y=0){
+  THREE.Object3D.call(this);
+  this.position.x=x;
+  this.position.y=y;
+ }
+
+Agent.prototype=new THREE.Object3D();
+Agent.prototype.sense=function(environment) {};
+Agent.prototype.plan=function(environment) {};
+Agent.prototype.act= function(environment) {};
+
+function Environment(){
+  THREE.Scene.call(this);
+}
+
+
+function Sensor(position, direction){
+  THREE.Raycaster.call(this, position, direction);
+  this.colision=false;
+}
+Sensor.prototype=new THREE.Raycaster();
+
+function Robot(size,x,y){
+  Agent.call(this,x,y);
+  
+  this.sensor=new Sensor();
+  this.actuator=new THREE.Mesh(new THREE.BoxGeometry(size,size,size),
+                              new THREE.BasicMaterial({color:'#aa0000'}));
+  this.actuator.commands=[];
+  this.add(this.actuator);
+}
+Robot.prototype=new Agent();
+
+Robot.prototype.sense=function(environment){
+  this.sensor.set(this.position,
+                 new THREE.Vector3(Math.cos(this.rotation.z),
+                                  Math.sin(this.rotation.z),
+                                  0));
+  var obstaculo=this.sensor.intersectObjects(environment.children,
+                                            true);
+  
+  if((obstaculo.length>0 &&
+     (obstaculo[0].distance<= .5)))
+    this.sensor.colision=true;
+  else
+    this.sensor.colision=false;
+};
+
+Robot.prototype.plan=function(environment){
+  this.actuator.commands=[];
+    
+  if(this.sensor.collision==true)
+    this.actuator.commands.push('rotateCCW');
+  else
+    this.actuator.commands.push('goStraight');
+};
+
+Robot.prototype.act=function(environment){
+  var command=this.actuator.commands,pop();
+   
+  if(command===undefined)
+    console.log('Undefined command');
+  else if (command in this.operations)
+    this.operations[command](this);
+  else
+    console.log('Unknown command');
+};
+
 Environment.prototype.setMap=function(map){
   var _offset= Math.floor(map.length/2);
-  
   for(var i=0; i<map.length; i++){
     for(var j=0; j<map.length; j++){
       if (map[i][j]==="x")
@@ -45,73 +112,31 @@ function setup(){
   mapa[20]="xxxxxxxxxx  xxxxxxxxxxxxx";
   mapa[21]="xr           r          x";
   mapa[22]="x                      rx";
-  mapa[23]="xxxxxxxxxxxxxxxxxxxxxxxxx";
+  mapa[23]="xr                      x";
+  mapa[24]="xxxxxxxxxxxxxxxxxxxxxxxxx";
   
-        
+  environment=new Environment();
+  environment.setMap(mapa);
   
-Environment.prototype=new THREE.Scene();
-Environment.prototype.sense=function(){
-  for (var i=0; i < this.children.length; i++){
-    if(this.children[i].sense !==undefined)
-      this.children[i].sense(this);
-  }
-}
-
+  camera=new THREE.PerspectiveCamera();
+  camera.position.z=30;
   
-  
-
-Environment.prototype.plan=function(){
-  for (var i=0; i < this.children.length; i++){
-    if(this.children[i].plan !==undefined)
-      this.children[i].plan(this);
-  }
-}
-Environment.prototype.act=function(){
-  for (var i=0; i < this.children.length; i++){
-    if(this.children[i].act !==undefined)
-      this.children[i].act(this);
-  }
-        
-function Pared(size,x=0,y=0){
-  THREE.Object3D.call(this,x,y);
-  this.add(new THREE.Mesh(new THREE.BoxGeometry(size,size,size),
-                         new THREE.MeshNormalMaterial()));
-  this.size=size;
-  this.position.x=x;
-  this.position.y=y;  
-}
-
-Pared.prototype=new THREE.Object3D();
-
-function setup(){
-  entorno=new Environment();
-  camara =new THREE.PerspectiveCamera();
-  camara.position.z=30;
-  
-  entorno.add(new Pared(1,7,0));
-  entorno.add(new Pared(1,-7,0));
-  entorno.add(new Pared(1,7,1));
-  entorno.add(new Pared(1,-7,1));
-  entorno.add(new Pared(1,7,-1));
-  entorno.add(new Pared(1,-7,-1));
-  entorno.add(new Pelota(0.5));
-  entorno.add(camara);
-
-  var lienzo=document.getElementById("agente");
-  
+  var lienzo=document.getElementById("agentemapa");
   renderer=new THREE.WebGLRenderer();
   renderer.setSize(window.innerHeight*.95, window.innerHeight*.95);
   document.body.appendChild(renderer.domElement);
+  
+  environment.add(camara);
 }
 
-function loop(){
+function.loop(){
   requestAnimationFrame(loop);
-  
-  entorno.sense();
-  entorno.plan();
-  entorno.act();
+  environment.sense();
+  environment.plan();
+  environment.act();
   renderer.render(entorno, camara);
 }
+var environment, camera, renderer;
 
 setup();
 loop();
