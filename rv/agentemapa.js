@@ -1,18 +1,3 @@
-function Agent(x=0, y=0){
-  THREE.Object3D.call(this);
-  this.position.x=x;
-  this.position.y=y;
- }
-
-Agent.prototype=new THREE.Object3D();
-Agent.prototype.sense=function(environment) {};
-Agent.prototype.plan=function(environment) {};
-Agent.prototype.act= function(environment) {};
-
-function Environment(){
-  THREE.Scene.call(this);
-}
-
 function Wall(size,x,y){
   THREE.Mesh.call(this,
                   new THREE.BoxGeometry(size,size,size),
@@ -22,6 +7,12 @@ function Wall(size,x,y){
   this.position.y=y;
 }
 Wall.prototype=new THREE.Mesh();
+
+function Environment(){
+  THREE.Scene.call(this);
+}
+
+
 
 function Sensor(position, direction){
   THREE.Raycaster.call(this, position, direction);
