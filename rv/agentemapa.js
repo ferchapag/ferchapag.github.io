@@ -1,13 +1,3 @@
-function Wall(size,x,y){
-  THREE.Mesh.call(this,
-                  new THREE.BoxGeometry(size,size,size),
-                  new THREE.MeshNormalMaterial());
-  this.size=size;
-  this.position.x=x;
-  this.position.y=y;
-}
-Wall.prototype=new THREE.Mesh();
-
 function Agent(x=0, y=0){
   THREE.Object3D.call(this);
   this.position.x=x;
@@ -23,6 +13,15 @@ function Environment(){
   THREE.Scene.call(this);
 }
 
+function Wall(size,x,y){
+  THREE.Mesh.call(this,
+                  new THREE.BoxGeometry(size,size,size),
+                  new THREE.MeshNormalMaterial());
+  this.size=size;
+  this.position.x=x;
+  this.position.y=y;
+}
+Wall.prototype=new THREE.Mesh();
 
 function Sensor(position, direction){
   THREE.Raycaster.call(this, position, direction);
@@ -97,8 +96,9 @@ Robot.prototype.operations.rotateCCW=function(robot, angle){
   robot.rotation.z+=angle;
 }
 
-Environment.prototype.setMap=function(map){
+Environment.prototype.setMap = function(map){
   var _offset= Math.floor(map.length/2);
+  
   for(var i=0; i<map.length; i++){
     for(var j=0; j<map.length; j++){
       if (map[i][j]==="x")
