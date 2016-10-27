@@ -129,7 +129,7 @@ function setup(){
   environment.add(camara);
 }
 
-function.loop(){
+function loop(){
   requestAnimationFrame(loop);
   environment.sense();
   environment.plan();
