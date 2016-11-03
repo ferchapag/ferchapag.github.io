@@ -63,11 +63,11 @@ tablero[0].add(tablero[i]);
 }
 //Torre
 var base= new THREE.Shape();
-base.moveTo(-1,-4);
-base.lineTo(-1,0);
-base.lineTo(1,0);
-base.lineTo(1,-4);
-base.lineTo(-1,-4);
+base.moveTo(-7,-7);
+base.lineTo(-7,7);
+base.lineTo(7,7);
+base.lineTo(7,-7);
+base.lineTo(-7,-7);
 var baseForma=new THREE.ExtrudeGeometry(base,{amount:10});
 var puntos = [];
 for(var i = 0; i<18; i++){
