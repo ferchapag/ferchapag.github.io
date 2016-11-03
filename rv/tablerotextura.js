@@ -63,12 +63,12 @@ tablero[0].add(tablero[i]);
 }
 //Torre
 var base= new THREE.Shape();
-base.moveTo(-7,-7);
-base.lineTo(-7,7);
-base.lineTo(7,7);
-base.lineTo(7,-7);
-base.lineTo(-7,-7);
-var baseForma=new THREE.ExtrudeGeometry(base,{amount:10});
+base.moveTo(-7,-4);
+base.lineTo(-7,0);
+base.lineTo(7,0);
+base.lineTo(7,-4);
+base.lineTo(-7,-4);
+var baseForma=new THREE.ExtrudeGeometry(base,{amount:15});
 var puntos = [];
 for(var i = 0; i<18; i++){
   puntos.push(new THREE.Vector2(Math.sin(i*0.2)*1+7,(i)));
