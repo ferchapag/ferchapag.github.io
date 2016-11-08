@@ -172,6 +172,180 @@ function setup(){
   environment.add(camera);
 }
 
+var mat1 = false;
+var mat2 = false;
+var mat3 = false;
+
+var fnBlack = function(textura) {
+   Gris = new THREE.MeshBasicMaterial({map: textura});  
+   mat1 = true;
+}
+var fnWhite = function(textura) {
+   Blanco = new THREE.MeshBasicMaterial({map: textura});  
+   mat2 = true;
+}
+var fnWood = function(textura) {
+   Marco = new THREE.MeshBasicMaterial({map: textura});  
+   mat3 = true;
+}
+
+var cargadorBlack=new THREE.TextureLoader();
+cargadorBlack.load("mnegro.jpg",
+              fnBlack);
+var cargadorWhite=new THREE.TextureLoader();
+cargadorWhite.load("mblanco.jpg",
+              fnWhite);
+var cargadorWood=new THREE.TextureLoader();
+cargadorWood.load("madera.jpg",
+              fnWood);
+
+function isEven(n) {
+   return n % 2 == 0;
+}
+
+function isOdd(n) {
+   return Math.abs(n % 2) == 1;
+}
+
+var poner=function(){
+for (i = 0; i < 8; i++) {
+  for (j = 0; j < 8; j++) {
+    var mat = Gris;
+    if (isEven(i)) {
+      if (isOdd(j)) {
+        mat = Blanco;
+      } 
+    } else {
+      if (isEven(j)) {
+        mat = Blanco;
+      } 
+    }
+    var geometry = new THREE.BoxGeometry( 10, 10, 10 );
+    var cubo = new THREE.Mesh(geometry,mat);
+    cubo.position.x = j*10;
+    cubo.position.y = i*10; 
+    tablero.push(cubo);
+  }
+}
+// Juntar cuadros
+for (i = 1; i < 64; i++) {
+tablero[0].add(tablero[i]);
+}
+//Torre
+var base= new THREE.Shape();
+base.moveTo(-7,-2);
+base.lineTo(-7,2);
+base.lineTo(7,2);
+base.lineTo(7,-2);
+base.lineTo(-7,-2);
+var baseForma=new THREE.ExtrudeGeometry(base,{amount:15});
+var puntos = [];
+for(var i = 0; i<18; i++){
+  puntos.push(new THREE.Vector2(Math.sin(i*0.2)*1+7,(i)));
+}
+var material=new THREE.MeshBasicMaterial( {color: 0x6e6e6e});
+
+var rev=new THREE.LatheGeometry(puntos);
+
+var revMalla= new THREE.Mesh(rev, material);
+var baseMalla=new THREE.Mesh(baseForma,material);
+
+var pilarForma= new THREE.CylinderGeometry(10,10,5);
+pilarForma.translate(0,18,0);
+var base2Forma=new THREE.CylinderGeometry(4,4,5);
+base2Forma.translate(0,23,0);
+var base3Forma=new THREE.CylinderGeometry(10,10,5);
+base3Forma.translate(0,28,0);
+
+var pilarMalla=new THREE.Mesh(pilarForma,material);
+var base2Malla=new THREE.Mesh(base2Forma,material);
+var base3Malla=new THREE.Mesh(base3Forma,material);
+
+var torreForma= new THREE.Geometry();
+torreForma.merge(revMalla.geometry, revMalla.matrix);
+torreForma.merge(baseMalla.geometry, baseMalla.matrix);
+var torreMalla=new THREE.Mesh(torreForma,material);
+
+var torreForma1= new THREE.Geometry();
+torreForma1.merge(pilarMalla.geometry, pilarMalla.matrix);
+torreForma1.merge(torreMalla.geometry, torreMalla.matrix);
+var torre1Malla=new THREE.Mesh(torreForma1,material);
+
+var torreForma2= new THREE.Geometry();
+torreForma2.merge(torre1Malla.geometry, torre1Malla.matrix);
+torreForma2.merge(base2Malla.geometry, base2Malla.matrix);
+var torre2Malla=new THREE.Mesh(torreForma2,material);
+
+var torreForma3= new THREE.Geometry();
+torreForma3.merge(torre2Malla.geometry, torre1Malla.matrix);
+torreForma3.merge(base3Malla.geometry, base3Malla.matrix);
+
+var torre3Malla=new THREE.Mesh(torreForma3,Gris);
+torre3Malla.scale.set(.4,.4,.4);
+torre3Malla.rotateX(1.57);
+torre3Malla.position.set(1,-1,10);
+var torre4Malla=new THREE.Mesh(torreForma3,Gris);
+torre4Malla.scale.set(.4,.4,.4);
+torre4Malla.position.set(68.5,-4,12);
+torre4Malla.rotateX(1.57);
+var torre5Malla=new THREE.Mesh(torreForma3,Blanco);
+torre5Malla.scale.set(.4,.4,.4);
+torre5Malla.position.set(1,65,12);
+torre5Malla.rotateX(1.57);
+var torre6Malla=new THREE.Mesh(torreForma3,Blanco);
+torre6Malla.scale.set(.4,.4,.4);
+torre6Malla.position.set(68.5,63,12);
+torre6Malla.rotateX(1.57);
+
+//camara
+camara = new THREE.PerspectiveCamera();
+camara.position.set(40,-130,100);
+camara.lookAt(new THREE.Vector3(40,40,15))
+
+var malla=new THREE.Mesh(new THREE.BoxGeometry(5,90,10), Marco);
+malla.position.set(-7.5,35,0);
+var malla2=new THREE.Mesh(new THREE.BoxGeometry(5,90,10), Marco);
+malla2.position.set(77.5,35,0);
+var malla3=new THREE.Mesh(new THREE.BoxGeometry(80,5,10), Marco);
+malla3.position.set(35,77.5,0);
+var malla4=new THREE.Mesh(new THREE.BoxGeometry(80,5,10), Marco);
+malla4.position.set(35,-7.5,0);
+
+escena = new THREE.Scene();
+for (i = 0; i < 64; i++) {
+escena.add(tablero[i]);
+escena.add(torre3Malla);
+escena.add(torre4Malla);
+escena.add(torre5Malla);
+escena.add(torre6Malla);
+escena.add(malla);
+escena.add(malla2);
+escena.add(malla3);
+escena.add(malla4);
+}
+
+
+
+renderizador = new THREE.WebGLRenderer();
+renderizador.setSize(window.innerWidth,window.innerHeight);
+
+document.body.appendChild(renderizador.domElement);
+}
+var didSetup = false;
+
+
+var loop1 = function(){
+   requestAnimationFrame(loop);
+   if(mat1 && mat2 && mat3){
+      if (didSetup == false) {
+      poner();
+      didSetup = true;
+      }
+   
+   renderizador.render(escena, camara);
+   }
+}
+
 function loop(){
   requestAnimationFrame(loop);
   environment.sense();
@@ -181,5 +355,6 @@ function loop(){
 }
 var environment, camera, renderer;
 
+loop1();
 setup();
 loop();
