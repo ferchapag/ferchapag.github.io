@@ -722,28 +722,28 @@
                 }
                 var side1 = new THREE.BoxGeometry(20, 0.5, 2);
                 var side1Mesh = new THREE.Mesh(side1, squareMaterial.clone());
-                side1Mesh.position.set(7, -0.25, -7);
+                side1Mesh.position.set(0, -0.25, -9);
                 side1.computeFaceNormals();
                 side1.computeVertexNormals();
                 SCENE.add(side1Mesh);
                 
                 var side2 = new THREE.BoxGeometry(20, 0.5, 2);
                 var side2Mesh = new THREE.Mesh(side2, squareMaterial.clone());
-                side2Mesh.position.set(7, -0.25, 7);
+                side2Mesh.position.set(0, -0.25, 9);
                 side2.computeFaceNormals();
                 side2.computeVertexNormals();
                 SCENE.add(side2Mesh);
                 
                 var side3 = new THREE.BoxGeometry(2, 0.5, 20);
                 var side3Mesh = new THREE.Mesh(side3, squareMaterial.clone());
-                side3Mesh.position.set(-7, -0.25, -7);
+                side3Mesh.position.set(-9, -0.25, 0);
                 side3.computeFaceNormals();
                 side3.computeVertexNormals();
                 SCENE.add(side3Mesh);
                 
                 var side4 = new THREE.BoxGeometry(2, 0.5, 20);
                 var side4Mesh = new THREE.Mesh(side4, squareMaterial.clone());
-                side4Mesh.position.set(7, -0.25, -7);
+                side4Mesh.position.set(9, -0.25, 0);
                 side4.computeFaceNormals();
                 side4.computeVertexNormals();
                 SCENE.add(side4Mesh);
