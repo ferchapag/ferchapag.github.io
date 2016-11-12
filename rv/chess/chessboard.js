@@ -726,6 +726,28 @@
                 side1.computeFaceNormals();
                 side1.computeVertexNormals();
                 SCENE.add(side1Mesh);
+                
+                var side2 = new THREE.BoxGeometry(20, 0.5, 2);
+                var side2Mesh = new THREE.Mesh(side2, squareMaterial.clone());
+                side2Mesh.position.set(7, -0.25, 7);
+                side2.computeFaceNormals();
+                side2.computeVertexNormals();
+                SCENE.add(side2Mesh);
+                
+                var side3 = new THREE.BoxGeometry(2, 0.5, 20);
+                var side3Mesh = new THREE.Mesh(side3, squareMaterial.clone());
+                side3Mesh.position.set(-7, -0.25, -7);
+                side3.computeFaceNormals();
+                side3.computeVertexNormals();
+                SCENE.add(side3Mesh);
+                
+                var side4 = new THREE.BoxGeometry(2, 0.5, 20);
+                var side4Mesh = new THREE.Mesh(side4, squareMaterial.clone());
+                side4Mesh.position.set(7, -0.25, -7);
+                side4.computeFaceNormals();
+                side4.computeVertexNormals();
+                SCENE.add(side4Mesh);
+                
 
                 // Add the file / rank labels
                 var opts = {
