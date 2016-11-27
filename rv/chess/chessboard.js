@@ -311,7 +311,8 @@
                 R: undefined,
                 B: undefined,
                 N: undefined,
-                P: undefined
+                P: undefined,
+                LEG: undefined
             };
 
             //------------------------------------------------------------------------------
@@ -689,11 +690,23 @@
                     material = BLACK_MATERIAL.clone();
                 }
 
-                var geometry, mesh;
+                var geometry, mesh, pataGeometry, meshPata1, meshPata2;
                 geometry = GEOMETRIES[species];
                 mesh = new THREE.Mesh(geometry, material);
                 mesh.position.x = coords.x;
                 mesh.position.z = coords.z;
+                mesh.position.y=.2;
+                
+                pataGeometry = GEOMETRIES['LEG'];
+                //brazoGeometry = GEOMETRIES['ARM'];
+                meshPata1 = new THREE.Mesh(pataGeometry, material);
+                meshPata2 = new THREE.Mesh(pataGeometry, material);
+                var legOffset = 2.0;
+                meshPata1.position.x = coords.x-legOffset;
+                meshPata1.position.z = coords.z;
+                meshPata2.position.x = coords.x+legOffset;
+                meshPata2.position.z = coords.z;
+                
                 if (color === 'w') {
                     mesh.rotation.y = Math.PI;
                 }
