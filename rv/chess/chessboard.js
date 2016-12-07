@@ -8,6 +8,9 @@
  *
  * Date: 7/1/2015
  */
+ var mat2 = false;
+ var mat1 = false;
+ var dragUpdate = 0;
 ;(function() {
     'use strict';
 
@@ -257,6 +260,15 @@
             }
             var WHITE_MATERIAL = new THREE.MeshPhongMaterial({color: new THREE.Color(whitePieceColor)});
 
+
+        //     var fnWhite = function(textura) {
+        //        var WHITE_MATERIAL = new THREE.MeshBasicMaterial({map: textura});
+        //        mat2 = true;
+        //    }
+        //     var cargadorWhite=new THREE.TextureLoader();
+        //     cargadorWhite.load("https://luishdzupiita.github.io/rv/marmolBlanco.jpeg",
+        //                   fnWhite);
+
             var whitePieceSpecular = 0xCCFFFF;
             if (cfg.hasOwnProperty('whitePieceSpecular') && typeof cfg.whitePieceSpecular === 'number') {
                 whitePieceSpecular = cfg.whitePieceSpecular;
@@ -268,7 +280,18 @@
             if (cfg.hasOwnProperty('blackPieceColor') && typeof cfg.blackPieceColor === 'number') {
                 blackPieceColor = cfg.blackPieceColor;
             }
-            var BLACK_MATERIAL = new THREE.MeshPhongMaterial({color: new THREE.Color(blackPieceColor)});
+            var  BLACK_MATERIAL= new THREE.MeshPhongMaterial({color: new THREE.Color(blackPieceColor)});
+
+            // var fnBlack = function(textura) {
+            //    var BLACK_MATERIAL = new THREE.MeshBasicMaterial({map: textura});
+                //   BLACK_MATERIAL.specular = new THREE.Color(blackPieceSpecular);
+                //   BLACK_MATERIAL.transparent = true;
+            //    mat1 = true;
+            // }
+            // var cargadorBlack=new THREE.TextureLoader();
+            // cargadorBlack.load("https://luishdzupiita.github.io/rv/marmolNegro.jpeg",
+            //               fnBlack);
+
 
             var blackPieceSpecular = 0x553333;
             if (cfg.hasOwnProperty('blackPieceSpecular') && typeof cfg.blackPieceSpecular === 'number') {
@@ -312,7 +335,8 @@
                 B: undefined,
                 N: undefined,
                 P: undefined,
-                LEG: undefined
+                LEG: undefined,
+                ARM: undefined
             };
 
             //------------------------------------------------------------------------------
@@ -453,7 +477,7 @@
                 }
 
                 // draggable must be true if sparePieces is enabled
-                if (cfg.sparePieces === true) {
+                if (cfg.spare  === true) {
                     cfg.draggable = true;
                 }
 
@@ -677,40 +701,64 @@
             }
 
             function buildPieceMesh(square, piece) {
-
                 var coords = squareCoordinates(square);
 
                 var color = piece.charAt(0);
                 var species = piece.charAt(1);
 
                 var material;
-                if (color === 'w') {
-                    material = WHITE_MATERIAL.clone();
-                } else if (color === 'b') {
-                    material = BLACK_MATERIAL.clone();
-                }
+                // while (mat1===false || mat2===false) {
+                //     // wait
+                //     console.log(mat1+':'+mat2)
+                //     setTimeout(function(){},300);
+                // }
+                    if (color === 'w') {
+                        material = WHITE_MATERIAL.clone();
+                    } else if (color === 'b') {
+                        material = BLACK_MATERIAL.clone();
+                    }
+
 
                 var geometry, mesh, pataGeometry, meshPata1, meshPata2;
+                var legOffset = 0.2;
+                var uplift = 0.8;
+                var legScale = 1.4;
+
                 geometry = GEOMETRIES[species];
                 mesh = new THREE.Mesh(geometry, material);
                 mesh.position.x = coords.x;
                 mesh.position.z = coords.z;
-                mesh.position.y=.2;
-                
+                mesh.position.y = uplift;
+
+                if (species==='k' || species==='K' || species==='q' || species==='Q') {
+                    mesh.scale.y = 0.8;
+                }
+
                 pataGeometry = GEOMETRIES['LEG'];
                 //brazoGeometry = GEOMETRIES['ARM'];
                 meshPata1 = new THREE.Mesh(pataGeometry, material);
                 meshPata2 = new THREE.Mesh(pataGeometry, material);
-                var legOffset = 2.0;
-                meshPata1.position.x = coords.x-legOffset;
-                meshPata1.position.z = coords.z;
-                meshPata2.position.x = coords.x+legOffset;
-                meshPata2.position.z = coords.z;
-                
+
+                //meshPata1.position.x = coords.x-legOffset;
+                //meshPata1.position.z = coords.z;
+                //meshPata2.position.x = coords.x+legOffset;
+                //meshPata2.position.z = coords.z;
+
                 if (color === 'w') {
                     mesh.rotation.y = Math.PI;
+
+                } else {
+
                 }
                 mesh.castShadow = true;
+                mesh.add(meshPata1, meshPata2);
+                meshPata1.position.x = -legOffset;
+                meshPata1.position.y = -uplift;
+                meshPata2.position.x = legOffset;
+                meshPata2.position.y = -uplift;
+                meshPata1.rotateY(Math.PI)
+                meshPata1.scale.set(legScale,legScale,legScale);
+                meshPata2.scale.set(legScale,legScale,legScale);
                 return mesh;
             }
 
@@ -734,33 +782,32 @@
                     }
                 }
                 var side1 = new THREE.BoxGeometry(20, 0.5, 2);
-                var side1Mesh = new THREE.Mesh(side1, squareMaterial.clone());
-                side1Mesh.position.set(0, -0.25, -9);
-                side1.computeFaceNormals();
-                side1.computeVertexNormals();
-                SCENE.add(side1Mesh);
-                
-                var side2 = new THREE.BoxGeometry(20, 0.5, 2);
-                var side2Mesh = new THREE.Mesh(side2, squareMaterial.clone());
-                side2Mesh.position.set(0, -0.25, 9);
-                side2.computeFaceNormals();
-                side2.computeVertexNormals();
-                SCENE.add(side2Mesh);
-                
-                var side3 = new THREE.BoxGeometry(2, 0.5, 20);
-                var side3Mesh = new THREE.Mesh(side3, squareMaterial.clone());
-                side3Mesh.position.set(-9, -0.25, 0);
-                side3.computeFaceNormals();
-                side3.computeVertexNormals();
-                SCENE.add(side3Mesh);
-                
-                var side4 = new THREE.BoxGeometry(2, 0.5, 20);
-                var side4Mesh = new THREE.Mesh(side4, squareMaterial.clone());
-                side4Mesh.position.set(9, -0.25, 0);
-                side4.computeFaceNormals();
-                side4.computeVertexNormals();
-                SCENE.add(side4Mesh);
-                
+               var side1Mesh = new THREE.Mesh(side1, squareMaterial.clone());
+               side1Mesh.position.set(0, -0.25, -9);
+               side1.computeFaceNormals();
+               side1.computeVertexNormals();
+               SCENE.add(side1Mesh);
+
+               var side2 = new THREE.BoxGeometry(20, 0.5, 2);
+               var side2Mesh = new THREE.Mesh(side2, squareMaterial.clone());
+               side2Mesh.position.set(0, -0.25, 9);
+               side2.computeFaceNormals();
+               side2.computeVertexNormals();
+               SCENE.add(side2Mesh);
+
+               var side3 = new THREE.BoxGeometry(2, 0.5, 20);
+               var side3Mesh = new THREE.Mesh(side3, squareMaterial.clone());
+               side3Mesh.position.set(-9, -0.25, 0);
+               side3.computeFaceNormals();
+               side3.computeVertexNormals();
+               SCENE.add(side3Mesh);
+
+               var side4 = new THREE.BoxGeometry(2, 0.5, 20);
+               var side4Mesh = new THREE.Mesh(side4, squareMaterial.clone());
+               side4Mesh.position.set(9, -0.25, 0);
+               side4.computeFaceNormals();
+               side4.computeVertexNormals();
+               SCENE.add(side4Mesh);
 
                 // Add the file / rank labels
                 var opts = {
@@ -871,6 +918,8 @@
             }
 
             function animateSquareToSquare(src, dest, completeFn) {
+
+                console.log('heara-868')
                 var destSquareMesh, pieceMesh;
                 if (PIECE_MESH_IDS.hasOwnProperty(src)) {
                     pieceMesh = SCENE.getObjectById(PIECE_MESH_IDS[src]);
@@ -940,6 +989,7 @@
             }
 
             function doAnimations(a, oldPos, newPos) {
+                console.log('heara-938')
                 if (a.length === 0) {
                     return;
                 }
@@ -1458,7 +1508,7 @@
 
             function addSquareHighlight(sq, color) {
                 if (!color) {
-                    color = 0xFFFF00;
+                    color = 0x00EE00;
                 }
                 var squareMesh = SCENE.getObjectById(SQUARE_MESH_IDS[sq]);
                 var highlightMesh = null;
@@ -1518,17 +1568,31 @@
                 }
                 if (validSpareSquare(DRAG_INFO.source)) {
                     // dragging a spare piece
+                    console.log('spare')
                     DRAG_INFO.mesh = DRAG_INFO.mesh.clone();
                     DRAG_INFO.mesh.position.y = 0; // lift spare piece onto the board
                     SCENE.add(DRAG_INFO.mesh);
                     RENDER_FLAG = true;
                 } else if (validOrdinarySquare(DRAG_INFO.source)) {
                     // dragging an ordinary piece
+                    console.log('1525-spare');
+                    dragUpdate = 0;
+                    //DRAG_INFO.mesh.position.y = 5;
                     highlightSourceSquare(DRAG_INFO.source);
                 }
             }
 
             function updateDraggedPiece(mouse_x, mouse_y) {
+                dragUpdate += 1;
+                // console.log(dragUpdate);
+                // console.log(DRAG_INFO.piece)
+                // console.log(DRAG_INFO.mesh)
+                // console.log(DRAG_INFO.mesh.children[0])
+                var anAm = 0.4;
+                var anPer = 0.1;
+                DRAG_INFO.mesh.children[0].position.z = anAm*Math.sin(dragUpdate*anPer);
+                DRAG_INFO.mesh.children[1].position.z = -1*anAm*Math.sin(dragUpdate*anPer);
+
                 var priorLocation = DRAG_INFO.location;
                 updateLocation(DRAG_INFO, mouse_x, mouse_y);
                 //DRAG_INFO.updateLocation(mouse_x, mouse_y);
@@ -1623,6 +1687,15 @@
             widget.flip = function() {
                 return widget.orientation('flip');
             };
+
+            widget.renderer = function() { return RENDERER;};
+            widget.scene = function() { return SCENE;};
+            widget.camera = function() { return CAMERA;};
+            widget.leg = function (){
+                var pataGeometry = GEOMETRIES['LEG'];
+                var pataMesh = new THREE.Mesh(pataGeometry, material);
+                return pataMesh;
+            }
 
             // highlight a square from client code
             widget.greySquare = function(sq) {
@@ -1741,6 +1814,7 @@
                         doAnimations(anims, CURRENT_POSITION, position); // invokes setCurrentPosition() from a callback
                     } else {
                         // instant update
+                        console.log('heara-1740');
                         setCurrentPosition(position);
                         drawPositionInstant();
                         RENDER_FLAG = true;
@@ -1808,6 +1882,7 @@
             }
 
             function mouseDown(e, useTouchObject) {
+                console.log('heara-1808')
                 e.preventDefault();
                 if (DRAG_INFO) {
                     return;
@@ -1821,6 +1896,7 @@
                     DRAG_INFO = dragged;
                     MOUSEOVER_SQUARE = 'offboard';
                     beginDraggingPiece();
+                    console.log('heara-1822')
                 } else {
                     if (CAMERA_CONTROLS) {
                         CAMERA_CONTROLS.enabled = true;
@@ -1941,6 +2017,8 @@
                 loadGeometry('B');
                 loadGeometry('N');
                 loadGeometry('P');
+                loadGeometry('LEG');
+                //loadGeometry('ARM');
 
                 function checkInitialization() {
                     if (checkGeometriesLoaded()) {
